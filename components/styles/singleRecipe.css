@@ -1,0 +1,53 @@
+.recipeOverview {
+  margin:20px auto;
+  width:75%;
+}
+.recipeLink {
+  color:#454545;
+  font-size: 120%;
+  font-weight: 500;
+  display:block;
+  margin:5px auto;
+  text-align: center;
+}
+.singleRecipeBackButton {
+  margin:10px auto;
+  width:80%;
+  height:35px;
+  display:block;
+  border-radius:5px;
+  cursor: pointer;
+  background-color:#8FCFDE;
+  color:#454545;
+}
+.singleRecipeBackButton:hover {
+  color:white;
+}
+.singleRecipeUserSaveButton {
+  margin:2px auto;
+  cursor: pointer;
+  border-radius:5px;
+  background-color:#8FCFDE;
+  color:#454545;
+  display:block;
+  height:35px;
+  width:80%;
+}
+.singleRecipeUserSaveButton:hover {
+  color:white;
+}
+.sigleRecipeImage {
+  max-width:100%;
+  margin:10px 0px;
+}
+.singleRecipeDisplayTitleText {
+  font-size: 22px;
+  text-align: center;
+}
+.recipeInstructions {
+  line-height: 20px;
+  font-size:120%;
+}
+.recipeLink:hover {
+  color:white;
+}

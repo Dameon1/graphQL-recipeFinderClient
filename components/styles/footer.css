@@ -1,0 +1,19 @@
+.footer {
+  border-top-style:solid; border-width:2px;
+  text-align:center;border-color:#8FCFDE;
+  height:30px;background-color:#454545; color:white;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.footerText {
+  margin-top:10px;
+ }
+ 
+.footerLink {
+	color: white;
+  text-decoration: none;
+	cursor: pointer;
+}

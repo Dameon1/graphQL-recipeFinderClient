@@ -1,0 +1,33 @@
+
+.multipleRecipeImage {
+  max-width:100%;
+}
+
+ .getRecipeButton {
+  width: 100%;
+  font-size: 18px;
+  background-color:#8FCFDE;
+  color:#454545;
+  border-radius:5px;
+}
+
+.recipeImageBox {
+  text-align: center;
+  max-width: 90%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  margin: 10px  auto;
+  font-size: 22px;
+}
+
+.multipleRecipeTitle {
+  width:100%;
+  font-stretch: condensed;
+  background-color: #D3D4D4;
+}
+
+.getRecipeButton:hover {
+  background-color:#454545;
+  color:#8FCFDE;
+}
