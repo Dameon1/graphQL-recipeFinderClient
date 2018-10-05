@@ -1,6 +1,7 @@
 
 import React from 'react';
 import  MultipleRecipesDisplay  from '../display/MultipleRecipesDisplay';
+import RecipeQuery from '../containers/RecipeQuery';
 import { userIsNotSearching  } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
@@ -16,11 +17,14 @@ export class Content extends React.Component {
       return <Spinner spinnername="circle" fadeIn='none' />;
   }
     return (
+      <div>
+        <RecipeQuery />
       
-      <div className='recipesDisplayBox'> 
+      {/* <div className='recipesDisplayBox'> 
         {this.props.apiRecipes.map((recipe,index) => (
           <MultipleRecipesDisplay { ...recipe } key={ index } index={ index }/>
         ))}
+      </div> */}
       </div>
     )
   }; 

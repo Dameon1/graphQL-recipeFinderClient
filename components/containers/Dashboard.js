@@ -1,6 +1,7 @@
 
 import React from 'react';
 import RecipeSearchForm  from '../display/RecipeSearchForm';
+
 import '../styles/dashboard.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -29,6 +30,7 @@ export class Dashboard extends React.Component {
             </h2>
           </div>
           <RecipeSearchForm />
+         
         </div>
       );
     };

@@ -1,4 +1,8 @@
 
+import React from 'react';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
 export const FETCH_RECIPES_FROM_SPOONACULAR_REQUEST = 'FETCH_RECIPES_FROM_SPOONACULAR_REQUEST';
 export const fetchRecipesFromSpoonacularRequest = () => ({
   type: FETCH_RECIPES_FROM_SPOONACULAR_REQUEST,
@@ -52,22 +56,51 @@ export const fetchRecipesInbulkFromSpoonacularError = error => ({
 });
 
 
-export const fetchRecipesFromSpoonacular = (queryString) => (dispatch) =>  {
-    dispatch(fetchRecipesFromSpoonacularRequest());    
-    return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${queryString}&limitLicense=false&number=20&ranking=1`, {
-              cache: 'no-cache', 
-              credentials: 'same-origin',
-              headers: { 'X-Mashape-Key': 'KIpcxoopqbmshgBnI6jbDfqaTFdep1CtFMajsnNSg0vp2OPTmY',
-                         'content-type': 'application/json' },
-              method: 'GET', 
-              mode: 'cors', 
-              redirect: 'follow', 
-              referrer: 'no-referrer', 
-              })
-    .then(response => response.json())
-    .then(response => dispatch(fetchRecipesFromSpoonacularSuccess(response))) 
-    .catch(error => dispatch(fetchRecipesFromSpoonacularError(error)));
-};
+// const GET_RECIPES = ($queryString) => client.query({
+//     query: gql`
+//       query fetchRecipesFromSpoonacular($queryString: String!) {
+//       recipes(name: $queryString){
+//         instructions,
+//         image,
+//         sourceUrl,
+//         id,
+//         title,  
+//         usedIngredientCount,
+//         missedIngredientCount,
+//       }
+//       }
+//     `
+//   });
+
+
+
+  //export const fetchRecipesFromSpoonacular = console.log(this.props,'notNeeded');
+
+
+// export const fetchRecipesFromSpoonacular = (queryString) => (dispatch) =>  {
+//     dispatch(fetchRecipesFromSpoonacularRequest())
+//     //return console.log(queryString)
+//     GET_RECIPES(queryString)
+        
+
+//     .then(response => response.json())
+//     .then(response => dispatch(fetchRecipesFromSpoonacularSuccess(response))) 
+//     .catch(error => dispatch(fetchRecipesFromSpoonacularError(error)));
+  
+// }
+ 
+//     // return fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${queryString}&limitLicense=false&number=20&ranking=1`, {
+//     //           cache: 'no-cache', 
+//     //           credentials: 'same-origin',
+//     //           headers: { 'X-Mashape-Key': 'KIpcxoopqbmshgBnI6jbDfqaTFdep1CtFMajsnNSg0vp2OPTmY',
+//     //                      'content-type': 'application/json' },
+//     //           method: 'GET', 
+//     //           mode: 'cors', 
+//     //           redirect: 'follow', 
+//     //           referrer: 'no-referrer', 
+//     //           })
+
+ // };
   
 export const fetchRecipesFromSpoonacularById = (id) => (dispatch) => {
     dispatch(fetchSingleRecipeFromFromSpoonacularRequest());
