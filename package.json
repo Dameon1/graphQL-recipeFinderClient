@@ -1,0 +1,42 @@
+{
+  "name": "graphql-recipefinderclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dameon1/graphQL-recipeFinderClient.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dameon1/graphQL-recipeFinderClient/issues"
+  },
+  "homepage": "https://github.com/Dameon1/graphQL-recipeFinderClient#readme",
+  "dependencies": {
+    "apollo-boost": "^0.1.23",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.5",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "jwt-decode": "^2.2.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.0",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-spinkit": "^3.0.0",
+    "react-test-renderer": "^16.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}

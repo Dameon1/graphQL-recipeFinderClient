@@ -1,17 +1,16 @@
 
-import React from "react";
-import '../styles/header.css';
-import { signUserOut } from '../../actions/auth';
-import { signingUserOut } from "../../actions/userActions";
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+ import React from "react";
+ import '../styles/header.css';
+// import { signUserOut } from '../../actions/auth';
+// import { signingUserOut } from "../../actions/userActions";
+ import { Link } from 'react-router-dom';
 
-export class Header extends React.Component {
+ export default class Header extends React.Component {
 
-  handleSignOut() {
-   this.props.dispatch(signingUserOut());
-   this.props.dispatch(signUserOut());
-  };
+//   handleSignOut() {
+//    this.props.dispatch(signingUserOut());
+//    this.props.dispatch(signUserOut());
+//   };
 
   render() {
     if (!this.props.loggedIn) {
@@ -57,8 +56,8 @@ export class Header extends React.Component {
   };
 };
 
-const mapStateToProps = state => ({
-  loggedIn: state.authReducer.loggedIn,
-});
+// const mapStateToProps = state => ({
+//   loggedIn: state.authReducer.loggedIn,
+// });
 
-export default connect(mapStateToProps)(Header);
+// export default connect(mapStateToProps)(Header);

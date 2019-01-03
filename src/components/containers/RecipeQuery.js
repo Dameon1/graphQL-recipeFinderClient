@@ -1,7 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { connect } from 'react-redux';
 const GET_RECIPES =  gql` 
 query{
 fetchRecipesFromSpoonacular(queryString:"chicken"){
@@ -91,5 +90,3 @@ const mapStateToProps = state => ({
   loading: state.recipeReducer.loading,
  
 });
-
-export default connect(mapStateToProps)(RecipeQuery);
