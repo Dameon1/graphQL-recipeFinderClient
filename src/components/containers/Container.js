@@ -4,11 +4,11 @@ import Header from '../display/Header';
 import LandingPage from '../display/LandingPage';
 // import LoginForm from '../display/userLogin';
 // import SignUpForm from '../display/SignUpForm';
-// import Dashboard from './Dashboard';
+import Dashboard from './Dashboard';
 // import Content from './Content';
 // import UserSavedRecipes from './UserSavedRecipes';
 // import SingleRecipe from './SingleRecipe';
-import Footer from '../display/Footer';
+//import Footer from '../display/Footer';
 import '../styles/landingPage.css';
 import { Route } from 'react-router-dom';
 
@@ -19,6 +19,7 @@ export class Container extends React.Component {
     <div>
       <Header />
       <Route exact path='/' component={ LandingPage } />
+      <Route exact path='/dashboard' component={ Dashboard } />
       {/* <footer role="contentinfo">
         <Footer />
       </footer> */}

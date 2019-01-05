@@ -1,15 +1,15 @@
 
-// import React from 'react';
-// import RecipeSearchForm  from '../display/RecipeSearchForm';
+import React from 'react';
+import RecipeSearchForm  from '../display/RecipeSearchForm';
 
-// import '../styles/dashboard.css';
+ import '../styles/dashboard.css';
 // import { Redirect } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import {
 //   fetchRecipeIdsFromDatabase,
 //   userIsSigningIn } from '../../actions/userActions';
 
-// export class Dashboard extends React.Component {
+ export default class Dashboard extends React.Component {
     
 //     componentWillMount() {
 //         if(this.props.loggedIn) {
@@ -18,24 +18,24 @@
 //         } 
 //     }; 
   
-//     render() {
-//       if(this.props.isSearching) { 
-//           return <Redirect to='/searchedRecipes' /> 
-//         }
-//       return (
-//         <div className="dashboard">
-//           <div className="">
-//             <h2 className="dashboardHeading">
-//               Welcome { (this.props.loggedIn)? <span className="userNameTextForDashboardHeading">{ this.props.username.toUpperCase() } </span> : null } to what2eat 
-//             </h2>
-//           </div>
-//           <RecipeSearchForm />
+    render() {
+      // if(this.props.isSearching) { 
+      //     return <Redirect to='/searchedRecipes' /> 
+      //   }
+      return (
+        <div className="dashboard">
+          <div className="">
+            <h2 className="dashboardHeading">
+              Welcome { (this.props.loggedIn)? <span className="userNameTextForDashboardHeading">{ this.props.username.toUpperCase() } </span> : null } to what2eat 
+            </h2>
+          </div>
+          <RecipeSearchForm />
          
-//         </div>
-//       );
-//     };
+        </div>
+      );
+    };
 
-// };
+};
 
 // const mapStateToProps = state => {
 //     return {

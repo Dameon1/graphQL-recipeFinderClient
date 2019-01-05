@@ -9,11 +9,22 @@ import { ApolloProvider  } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 
 
-
+// const client = new ApolloClient({
+//   uri:"http://localhost:4001"
+// })
 const client = new ApolloClient({
-  uri:"http://localhost:4001"
+  uri: 'http://localhost:4001',
+  clientState: {
+    defaults: {
+      isLoggedIn: true,
+      recipes: [],
+    },
+  },
+  onError: ({ networkError, graphQLErrors }) => {
+    console.log('graphQLErrors', graphQLErrors)
+    console.log('networkError', networkError)
+  }
 })
-
 ReactDOM.render(
   <ApolloProvider client={client}>
       <Router>       
