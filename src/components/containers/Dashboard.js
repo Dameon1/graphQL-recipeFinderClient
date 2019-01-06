@@ -15,7 +15,7 @@ import RecipeSearchForm  from '../display/RecipeSearchForm';
 //         if(this.props.loggedIn) {
 //           this.props.dispatch(userIsSigningIn())
 //           this.props.dispatch(fetchRecipeIdsFromDatabase(this.props.userId,this.props.authToken))
-//         } 
+//         } @local
 //     }; 
   
     render() {
