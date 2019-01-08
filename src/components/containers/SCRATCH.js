@@ -2,51 +2,44 @@ import {  graphql, compose} from 'react-apollo'
 import React from 'react';
 import './scratch.css';
 //import gql from 'graphql-tag';
-import getCurrentState from './scratchImport';
-import updateState from './scratchUpdate';
+import getState from './scratchImport';
+import updateNumber from './scratchUpdate';
 //import { ApolloConsumer } from 'react-apollo';
 // const client = new ApolloClient({
 //   link: new HttpLink({ uri: 'https://graphql.example.com' }),
 //   cache: new InMemoryCache()
 // })
-console.log(updateState);
+//console.log(updateState);
 export class SCRATCH extends React.Component {
   
   render(){
     //console.log(this.props.updateState)
-    const updateState = this.props.updateState
-    const {currentUser,
-      recipes,
-      isSearching,
-      userRecipes,
-      apiRecipes,
-      currentApiRecipeDisplayed,
-      loading,
-      error,
-      returningResults,
-      viewingSingleItem ,     
-      authToken, 
-      loggedIn,
-      number} = this.props.CurrentState;
+    //const updateState = this.props.updateState
+    const {
+      updateNumber,
+      currentState : {number} } = this.props;
       //console.log(isSearching)
     return(
       <div>
-      <h1>
-      This is a test to help {currentUser}
-      </h1>
-     
-      <div>
-        <h2 className='box'>
-        <p className='center'>This is the state</p>
-         <br></br>
-        Current number is:  {number}  <br></br>
-              
-        <button type='button'
-                onClick={()=>console.log(this)}>
-         Click Me       
-                </button>
-                </h2>
-      </div>   
+        <h1>
+          This is a test to help 
+        </h1>     
+          <div>
+            <h2 className='box'>
+            <p className='center'>This is the state</p>
+            <br></br>
+            Current number is:  {number}  <br></br>
+            <button type='button'
+                    onClick={()=>updateNumber({
+                      variables: {
+                        index:'number',
+                        value: parseInt(number,10)+1
+                      }
+                    })}>
+            Click Me       
+                    </button>
+                    </h2>
+          </div>   
      
       </div>
     )
@@ -54,11 +47,11 @@ export class SCRATCH extends React.Component {
 }
 
 export default compose(
-  graphql(updateState,{name:'updateState'}),
-  graphql(getCurrentState,{
-    props: ({ data: { CurrentState }
+  graphql(updateNumber,{name:'updateNumber'}),
+  graphql(getState,{
+    props: ({ data: { currentState }
     }) => ({   
-     CurrentState
+     currentState
    })  
  })
 )(SCRATCH)

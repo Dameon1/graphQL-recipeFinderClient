@@ -1,10 +1,11 @@
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import gql from 'graphql-tag';
+import GET_CURRENT_STATE from './components/containers/scratchImport';
 const cache = new InMemoryCache();
 
 const defaultState = {
-  CurrentState: {
-    __typename: 'CurrentState',
+  currentState: {
+    __typename: 'currentState',
     userRecipes:[1,2,3,4,5],//users stored recipes
     apiRecipes:[],//api recipes
     currentApiRecipeDisplayed:[],
@@ -27,29 +28,44 @@ export const client = new ApolloClient({
       defaults: defaultState,
       resolvers: {
         Mutation: {
-          updateState: (_,{index,value},{cache}) => {            
-            updateGame: (_, { index, value }, { cache }) => {
-              const query = gql`
-                query {
-                  currentState @client {
-                    number
-                  }
-                }
-              `
-              const previous = cache.readQuery({ query })
-              const data = {
-                currentGame: {
-                  ...previous.currentGame,
-                  number: value
-                }
+          updateNumber: (_,{index,value},{cache}) => {
+            const query = GET_CURRENT_STATE
+            const previousState = cache.readQuery({ query });
+            const data = {
+              ...previousState,
+              currentState: {
+                ...previousState.currentState,
+                [index]:value
               }
+           }
+           cache.writeData({query,data})
+             console.log(data)   
+           }
+          },
+          
+        },        
+    //         updateGame: (_, { index, value }, { cache }) => {
+    //           const query = gql`
+    //             query {
+    //               currentState @client {
+    //                 number
+    //               }
+    //             }
+    //           `
+    //           const previous = cache.readQuery({ query })
+    //           const data = {
+    //             currentGame: {
+    //               ...previous.currentGame,
+    //               number: value
+    //             }
+    //           }
       
-              cache.writeQuery({ query, data })
-              return null;
-          }
-        }
-      }
-    },  
+    //           cache.writeQuery({ query, data })
+    //           return null;
+    //       }
+    //     }
+    //   }
+    // },  
     uri: 'http://localhost:4001',    
     onError: ({ networkError, graphQLErrors }) => {
       console.log('graphQLErrors', graphQLErrors)

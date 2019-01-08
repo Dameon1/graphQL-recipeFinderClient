@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 export default gql`
   query {
-    CurrentState @client {
+    currentState @client {
       currentUser
       recipes
       isSearching
