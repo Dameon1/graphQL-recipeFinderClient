@@ -6,25 +6,27 @@ import './index.css';
 import {Container} from './components/containers/Container';
 import registerServiceWorker from './registerServiceWorker';
 import { ApolloProvider  } from 'react-apollo';
-import ApolloClient from 'apollo-boost';
-
+import {client} from './apolloClient';
 
 // const client = new ApolloClient({
 //   uri:"http://localhost:4001"
 // })
-const client = new ApolloClient({
-  uri: 'http://localhost:4001',
-  clientState: {
-    defaults: {
-      isLoggedIn: true,
-      recipes: [],
-    },
-  },
-  onError: ({ networkError, graphQLErrors }) => {
-    console.log('graphQLErrors', graphQLErrors)
-    console.log('networkError', networkError)
-  }
-})
+// const client = new ApolloClient({
+//   uri: 'http://localhost:4001',
+//   clientState: {
+//     defaults: {
+//       isLoggedIn: true,
+//       recipes: [],
+//     },
+//     resolvers,
+//     typeDefs,
+
+//   },
+//   onError: ({ networkError, graphQLErrors }) => {
+//     console.log('graphQLErrors', graphQLErrors)
+//     console.log('networkError', networkError)
+//   }
+// })
 ReactDOM.render(
   <ApolloProvider client={client}>
       <Router>       
