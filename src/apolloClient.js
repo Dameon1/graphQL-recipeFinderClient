@@ -43,7 +43,15 @@ export const client = new ApolloClient({
            }
           },
           
-        },        
+        },
+      },
+    uri: 'http://localhost:4001',    
+    onError: ({ networkError, graphQLErrors }) => {
+      console.log('graphQLErrors', graphQLErrors)
+      console.log('networkError', networkError)
+    },
+  cache, 
+})       
     //         updateGame: (_, { index, value }, { cache }) => {
     //           const query = gql`
     //             query {
@@ -66,10 +74,4 @@ export const client = new ApolloClient({
     //     }
     //   }
     // },  
-    uri: 'http://localhost:4001',    
-    onError: ({ networkError, graphQLErrors }) => {
-      console.log('graphQLErrors', graphQLErrors)
-      console.log('networkError', networkError)
-    },
-  cache
-}})
+  

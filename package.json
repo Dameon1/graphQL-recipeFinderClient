@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Dameon1/graphQL-recipeFinderClient#readme",
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "apollo-boost": "^0.1.23",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -31,6 +32,7 @@
     "react": "^16.4.0",
     "react-apollo": "^2.3.3",
     "react-dom": "^16.4.0",
+    "react-emotion": "^10.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "react-spinkit": "^3.0.0",

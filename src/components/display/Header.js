@@ -3,7 +3,7 @@
  import '../styles/header.css';
 // import { signUserOut } from '../../actions/auth';
 // import { signingUserOut } from "../../actions/userActions";
- import { Link } from 'react-router-dom';
+ import { Link } from '@reach/router';
 
  export default class Header extends React.Component {
 
