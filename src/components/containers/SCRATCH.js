@@ -1,4 +1,4 @@
-import {  graphql, compose} from 'react-apollo'
+import { graphql, compose} from 'react-apollo'
 import React from 'react';
 import './scratch.css';
 //import gql from 'graphql-tag';
@@ -10,7 +10,7 @@ import updateNumber from './scratchUpdate';
 //   cache: new InMemoryCache()
 // })
 //console.log(updateState);
-export class SCRATCH extends React.Component {
+class SCRATCH extends React.Component {
   
   render(){
     //console.log(this.props.updateState)
@@ -18,7 +18,7 @@ export class SCRATCH extends React.Component {
     const {
       updateNumber,
       currentState : {number} } = this.props;
-      //console.log(isSearching)
+      console.log(this.props)
     return(
       <div>
         <h1>

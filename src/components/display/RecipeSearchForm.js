@@ -1,23 +1,25 @@
+import "../styles/recipeSearchForm.css";
+import React from 'react';
+import Checkbox from './Checkbox';
+import { Query, graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
+import getState from '../../actions/getCurrentState';
+import { Link, navigate } from '@reach/router';
+import updateCurrentSearchTerm from '../../actions/updateCurrentSearchTerm';
 
- import "../styles/recipeSearchForm.css";
- import React from 'react';
- import Checkbox from './Checkbox';
-import { Query, renderToStringWithData } from 'react-apollo';
-
- import gql from 'graphql-tag';
- const Query_Recipes = gql`
+export const Query_Recipes = gql`
   query($queryString: String!){
     fetchRecipesFromSpoonacular(queryString:$queryString){
       instructions
       usedIngredientCount
       image
       title
-      id
+      id      
     }
   }
 `;
 
-export default class RecipeSearchForm extends React.Component {
+export class RecipeSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
@@ -26,7 +28,7 @@ export default class RecipeSearchForm extends React.Component {
       queryString : "",
     }
   }
-
+  
   componentWillMount = () => {
     this.selectedCheckboxes = new Set();
   }
@@ -68,40 +70,87 @@ export default class RecipeSearchForm extends React.Component {
     this.input.value="";      
   }
 
+    handleFormSubmit = async formSubmitEvent => {
+      formSubmitEvent.preventDefault();    
+      if(this.selectedCheckboxes.size === 0) { return alert('Please select some ingredients') }
+      for (const checkbox of this.selectedCheckboxes) {
+        this.setState({queryString: this.state.queryString + checkbox + ','});
+      };
+      // this.props.updateCurrentSearchTerm({
+      //   variables: {
+      //     value: this.state.queryString
+      //   }
+      // })
+      //updateCurrentSearchTerm({value:this.state.queryString});  
+    //let recipeString = this.state.queryString.slice(0,-1);
+    //this.props.dispatch(userIsSearching());
+    //this.props.dispatch(fetchRecipesFromSpoonacular(recipeString));
+    //navigate('/searchResults');
+  }
+
   render() {
+    const {currentUser} = this.props.currentState;
     return (
+      <div className="dashboard">
+        <div className="">
+          <h2 className="dashboardHeading">
+            Welcome {currentUser} to what2eat 
+          </h2>
+        </div>
       <div>
         <form className="addIngredientForm" onSubmit = { (e)=>this.addIngredents(e) } > 
           <label htmlFor="addIngredient" 
-                aria-labelledby="addIngredient"
-                className="addIngredientLabel" >
+                 aria-labelledby="addIngredient"
+                 className="addIngredientLabel" >
             Add Your Special Ingredients Here
           </label>
           <input className="addIngredientInputField" 
-              type="text" 
-              placeholder=" Add Ingredient" 
-              name="addIngredient" 
-              id="addIngredient" 
-              ref={ input => (this.input = input) }
-          />
+                 type="text" 
+                 placeholder=" Add Ingredient" 
+                 name="addIngredient" 
+                 id="addIngredient" 
+                 ref={ input => (this.input = input) }
+                  />
           <button className="addIngredientButton" type="submit" >Add</button>
         </form>
-        <Query query={Query_Recipes}
+        <form onSubmit = { this.handleFormSubmit } className = "recipeSearchForm" >
+          {this.createCheckboxes()}
+          <button className = "recipeSearchButton" type = "submit">Search</button>
+        </form>         
+      </div>
+        {/* <Query query={Query_Recipes}
                variables={ { queryString:this.state.queryString } }
         >
-        {({ loading, error, data }) => { 
-          {console.log(data)}     
+        {({ loading, error, data }) => {
+          console.log(this.props) 
+          console.log(data)    
           if (loading) return <p>Loading...</p>;
           if (error) return `${error.message}`;        
           return  (
-            <div>Search Form Here</div>
+            <div>
+              <form onSubmit={this.handleFormSubmit} className="recipeSearchForm">
+                {this.createCheckboxes()}
+                <button className="recipeSearchButton" type="submit">Search</button>
+              </form>
+            </div>
           )
         }}
-        </Query>
+        </Query> */}
       </div>
+      
     )
   }
 }
+
+export default compose(
+  graphql(updateCurrentSearchTerm,{name:'updateCurrentSearchTerm'}),
+  graphql(getState,{
+    props: ({ data: { currentState }
+    }) => ({   
+     currentState
+   })  
+ })
+)(RecipeSearchForm)
 // import { fetchRecipesFromSpoonacular } from '../../actions/spoonacularActions';
 // import { userIsSearching } from "../../actions/userActions";
 // import { connect } from 'react-redux';

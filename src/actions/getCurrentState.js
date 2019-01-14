@@ -1,5 +1,4 @@
-import gql from 'graphql-tag'
-
+import gql from 'graphql-tag';
 
 export default gql`
   query {
@@ -16,7 +15,7 @@ export default gql`
       viewingSingleItem      
       authToken 
       loggedIn
-     
+      currentSearchTerm
     }
   }
-`
+`;

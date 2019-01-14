@@ -1,10 +1,8 @@
-
 import React from 'react';
 import '../styles/landingPage.css';
-import {Link} from 'react-router-dom';
+import { Link } from '@reach/router';
 
 export default function LandingPage() {
-
   return (
     <div className='landingPage'>
       <div className="landingPageBox">
