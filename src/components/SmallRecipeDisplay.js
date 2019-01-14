@@ -22,7 +22,7 @@ export class SmallRecipeDisplay extends React.Component {
         </img>
         <p>Ingredients used: { props.usedIngredientCount }</p>
         <p>Missing ingredients: { props.missedIngredientCount }</p>
-        <Link to={ `/recipe/${props.id}` }>
+        <Link to={ `/singleRecipe/${props.id}` }>
           <button className="getRecipeButton" 
                   onClick={ () => console.log('Query Component needed') }>
             Get Recipe

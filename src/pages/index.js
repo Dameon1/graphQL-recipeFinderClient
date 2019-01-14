@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
 import { Router } from '@reach/router';
-import PageContainer from '../components/containers/pageContainer';
-import Header from '../components/display/Header';
-import LandingPage from '../components/display/LandingPage';
+
+import PageContainer from '../components/PageContainer';
+import Header from '../components/Header';
+import LandingPage from '../components/LandingPage';
+
 import '../components/styles/landingPage.css';
 import Dashboard from './dashboard';
 import SearchResults from './searchResults';
+import SingleRecipe from './singleRecipe';
 
 export default function Pages() {
   return (
@@ -15,7 +18,8 @@ export default function Pages() {
         <Router primary={false} component={Fragment}>
           <LandingPage path='/' /> 
           <Dashboard path="/dashboard" />
-          <SearchResults path="/searchResults" />          
+          <SearchResults path="/searchResults" />
+          <SingleRecipe path="/singleRecipe/*" />          
         </Router>
       </PageContainer>      
     </Fragment>

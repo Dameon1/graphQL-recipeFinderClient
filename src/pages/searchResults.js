@@ -5,6 +5,7 @@ import Spinner from 'react-spinkit';
 import getState from '../actions/getCurrentState';
 import SmallRecipeDisplay  from '../components/SmallRecipeDisplay';
 
+import '../components/styles/multipleRecipesDisplay.css';
 
 export const GET_MULTIPLE_API_RECIPES = gql`
   query getApiRecipes ($queryString: String!){
@@ -32,16 +33,15 @@ export class SearchResults extends React.Component {
         if (error) return <p>ERROR: {error.message}</p>;
         console.log(data.fetchRecipesFromSpoonacular)
         return (
-          data.fetchRecipesFromSpoonacular.map((item,index) => {
-            return ( <Fragment key={index}>
-                 <SmallRecipeDisplay props={{...item}} />             
-            
+          <div className='recipesDisplayBox'>
+          <Fragment> 
+          {data.fetchRecipesFromSpoonacular.map((item,index) => {            
+             return <SmallRecipeDisplay props={{...item}} key={index}/>         
+          })}
           </Fragment>
-            )
-          })
-        )
-       
-      }}
+          </div>
+          )
+          }}     
     </Query>
   );
     }
