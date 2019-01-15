@@ -14,7 +14,8 @@ export const GET_MULTIPLE_API_RECIPES = gql`
       usedIngredientCount
       image
       title
-      id      
+      id
+      missedIngredientCount        
     }
   }
 `;

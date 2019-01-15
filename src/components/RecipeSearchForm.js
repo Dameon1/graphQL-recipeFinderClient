@@ -1,10 +1,10 @@
+import "./styles/recipeSearchForm.css";
 import React from 'react';
-import { navigate } from '@reach/router';
 import Checkbox from './Checkbox';
 import { graphql, compose } from 'react-apollo';
 import getState from '../actions/getCurrentState';
+import { navigate } from '@reach/router';
 import updateCurrentSearchTerm from '../actions/updateCurrentSearchTerm';
-import "./styles/recipeSearchForm.css";
 
 
 export class RecipeSearchForm extends React.Component {

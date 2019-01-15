@@ -1,6 +1,6 @@
 
  import React from "react";
- import '../styles/header.css';
+ import './styles/header.css';
 // import { signUserOut } from '../../actions/auth';
 // import { signingUserOut } from "../../actions/userActions";
  import { Link } from '@reach/router';

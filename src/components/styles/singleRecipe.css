@@ -47,6 +47,12 @@
 .recipeInstructions {
   line-height: 20px;
   font-size:120%;
+  margin-top:5px;
+  padding:2px;
+}
+.recipeInstructionsText {
+  margin-top:5px;
+  padding:2px;
 }
 .recipeLink:hover {
   color:white;

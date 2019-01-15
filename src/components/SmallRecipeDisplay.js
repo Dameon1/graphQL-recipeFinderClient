@@ -4,6 +4,7 @@ import { Link } from '@reach/router';
 
 
 import getState from '../actions/getCurrentState';
+import updateCurrentRecipe from '../actions/updateCurrentRecipe';
 
 export class SmallRecipeDisplay extends React.Component {
   
@@ -24,7 +25,11 @@ export class SmallRecipeDisplay extends React.Component {
         <p>Missing ingredients: { props.missedIngredientCount }</p>
         <Link to={ `/singleRecipe/${props.id}` }>
           <button className="getRecipeButton" 
-                  onClick={ () => console.log('Query Component needed') }>
+                  onClick={ () => this.props.updateCurrentRecipe({
+                    variables: {
+                      value: props.id
+                    }
+                  }) }>
             Get Recipe
           </button>
         </Link> 
@@ -35,7 +40,7 @@ export class SmallRecipeDisplay extends React.Component {
 
   
 export default compose(
-  //graphql(updateNumber,{name:'updateNumber'}),
+  graphql(updateCurrentRecipe,{name:'updateCurrentRecipe'}),
   graphql(getState,{
     props: ({ data: { currentState }
     }) => ({   
