@@ -9,6 +9,7 @@ import '../components/styles/landingPage.css';
 import Dashboard from './dashboard';
 import SearchResults from './searchResults';
 import SingleRecipe from './singleRecipe';
+import CreateAccount from './createAccount';
 
 export default function Pages() {
   return (
@@ -19,7 +20,8 @@ export default function Pages() {
           <LandingPage path='/' /> 
           <Dashboard path="/dashboard" />
           <SearchResults path="/searchResults" />
-          <SingleRecipe path="/singleRecipe/*" />          
+          <SingleRecipe path="/singleRecipe/*" />
+          <CreateAccount path='/signUp' />          
         </Router>
       </PageContainer>      
     </Fragment>
