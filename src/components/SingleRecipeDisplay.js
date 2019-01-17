@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Query, graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import Spinner from 'react-spinkit';
+
 import getState from '../actions/getCurrentState';
 import './styles/singleRecipe.css';
-
 
 export const GET_RECIPE_BY_ID = gql`
   query fetchRecipesFromSpoonacularById ($id: Int!){

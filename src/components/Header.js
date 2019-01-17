@@ -1,9 +1,9 @@
-
  import React from "react";
+ import { Link } from '@reach/router';
+
  import './styles/header.css';
 // import { signUserOut } from '../../actions/auth';
 // import { signingUserOut } from "../../actions/userActions";
- import { Link } from '@reach/router';
 
  export default class Header extends React.Component {
 
@@ -12,6 +12,7 @@
 //    this.props.dispatch(signUserOut());
 //   };
 
+//TODO SEPARATE HEADERS INTO SEPARATE FILES
   render() {
     if (!this.props.loggedIn) {
       return (

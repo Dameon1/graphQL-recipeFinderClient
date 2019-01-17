@@ -9,7 +9,7 @@ import '../components/styles/landingPage.css';
 import Dashboard from './dashboard';
 import SearchResults from './searchResults';
 import SingleRecipe from './singleRecipe';
-import CreateAccount from './createAccount';
+import SignIn from './signIn';
 
 export default function Pages() {
   return (
@@ -21,7 +21,7 @@ export default function Pages() {
           <Dashboard path="/dashboard" />
           <SearchResults path="/searchResults" />
           <SingleRecipe path="/singleRecipe/*" />
-          <CreateAccount path='/signUp' />          
+          <SignIn path='/signIn' />          
         </Router>
       </PageContainer>      
     </Fragment>
@@ -29,40 +29,8 @@ export default function Pages() {
 }
 
 /*********  TODO
-          <Route exact path='/' component={ LandingPage } />
-         <Route exact path='/dashboard' component={ Dashboard } />
-         <Route exact path='/loginPage' component={ LoginForm } />
          <Route exact path='/signUp' component={ SignUpForm } /> 
          <Route exact path='/searchedRecipes' component={ Content } />
          <Route exact path='/myRecipes' component={ UserSavedRecipes } />
          <Route path='/recipe/:id' component={ SingleRecipe } />
-*/
-
-//import Dashboard from './dashboard';
-//import Scratch from '../components/containers/SCRATCH';
-// import React, { Fragment } from 'react';
-// //import { Router } from '@reach/router';
-// //import Launch from './launch';
-// //import Launches from './launches';
-// //import Cart from './cart';
-// //import Profile from './profile';
-// import Footer from '../components/display/Footer';// 
-//  import LoginForm from '../components/display/userLogin';
-//  import SignUpForm from '../components/display/SignUpForm'; 
-//  import Content from '../components/containers/Content';
-//  import UserSavedRecipes from '../components/containers/UserSavedRecipes';
-//  import Scratch from '../components/containers/Scratch';
-// //import Footer from '../display/Footer';
-// export default function Pages() {
-//   {console.log(this.props)}
-//   return (
-//     <Fragment>
-//         <Header />
-
-//       <Footer />
-//     </Fragment>
-//   );
-// }
-
-
-    
+*/ 
