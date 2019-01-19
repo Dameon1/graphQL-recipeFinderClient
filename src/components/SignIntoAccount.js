@@ -18,7 +18,7 @@ const SIGNIN_MUTATION = gql`
 `;
 
 function routeToHome(data) {
-  console.log(data)  
+  navigate('/dashboard')  
 };
 
 class SignIntoAccount extends Component {
@@ -42,17 +42,18 @@ class SignIntoAccount extends Component {
             <form method="post"
                   onSubmit={async e => {
                     e.preventDefault();
+                    await signin();
                     this.setState({username: '', password: '' });
                   }}>
               <fieldset disabled={loading} aria-busy={loading}>
                 <h2>Sign into your account</h2>
                 <p error={error} />
-                <label htmlFor="email">
-                  Email
+                <label htmlFor="username">
+                username
                   <input
                     type="text"
                     name="username"
-                    placeholder="email"
+                    placeholder="username"
                     value={this.state.username}
                     onChange={this.saveToState}
                   />

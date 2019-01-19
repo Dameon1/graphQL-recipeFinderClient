@@ -14,14 +14,13 @@ const defaultState = {
 export const client = new ApolloClient({
   clientState:{     
     defaults: defaultState,
-    resolvers,
-    cache,
+    resolvers,    
   },
-  uri: 'http://localhost:4001',
+  uri: 'http://localhost:4000',
   credentials: 'include',   
   onError: ({ networkError, graphQLErrors }) => {
     console.log('graphQLErrors', graphQLErrors)
     console.log('networkError', networkError)
   },
-   
+  cache,
 });
