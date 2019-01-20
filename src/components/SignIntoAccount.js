@@ -42,6 +42,7 @@ class SignIntoAccount extends Component {
             <form method="post"
                   onSubmit={async e => {
                     e.preventDefault();
+                    console.log(this.state)
                     await signin();
                     this.setState({username: '', password: '' });
                   }}>

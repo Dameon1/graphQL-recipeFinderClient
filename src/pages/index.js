@@ -10,6 +10,7 @@ import Dashboard from './dashboard';
 import SearchResults from './searchResults';
 import SingleRecipe from './singleRecipe';
 import SignIn from './signIn';
+import SignUp from './signUp';
 
 export default function Pages() {
   return (
@@ -22,6 +23,7 @@ export default function Pages() {
           <SearchResults path="/searchResults" />
           <SingleRecipe path="/singleRecipe/*" />
           <SignIn path='/signIn' />          
+          <SignUp path='/signUp' />          
         </Router>
       </PageContainer>      
     </Fragment>

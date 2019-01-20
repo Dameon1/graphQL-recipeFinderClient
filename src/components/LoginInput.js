@@ -1,12 +1,12 @@
 import React from 'react';
-//import '../styles/loginInput.css';
+import './styles/loginInput.css';
 
 export default class Input extends React.Component {
 
     componentDidUpdate(prevProps) {
-        if (!prevProps.meta.active && this.props.meta.active) {
-            this.input.focus();
-        }
+        // if (!prevProps.meta.active && this.props.meta.active) {
+        //     this.input.focus();
+        // }
     };
    
     render() {
@@ -26,8 +26,8 @@ export default class Input extends React.Component {
             { error }
             { warning }
             <input className="text-input"
-                   id={ this.props.input.name }
-                   placeholder={` ${this.props.input.name}`}
+                   id={ this.props.name }
+                   placeholder={` ${this.props.name}`}
                    type={ this.props.type }
                    ref={ input => (this.input = input) }
             { ...this.props.input }
