@@ -10,14 +10,12 @@ import {navigate} from '@reach/router';
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($username: String!, $password: String!) {
     signInUser(username: $username, password: $password) {
-      id
       username
-      password
     }
   }
 `;
 
-function routeToHome(data) {
+function routeToHome() {
   navigate('/dashboard')  
 };
 
@@ -34,7 +32,7 @@ class SignIntoAccount extends Component {
       <Mutation
         mutation={SIGNIN_MUTATION}
         variables={this.state}
-        //refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signin, { data, error, loading }) => {
          if(data){routeToHome(data)}

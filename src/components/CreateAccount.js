@@ -4,15 +4,9 @@ import gql from 'graphql-tag';
 import Form from './styles/form';
 import './styles/userLogin.css';
 import Error from './ErrorMessage';
-// import {
-//   required, 
-//   nonEmpty, 
-//   matches, 
-//   length, 
-//   isTrimmed } from '../validators';
+import {navigate} from '@reach/router';
+import { CURRENT_USER_QUERY } from './User';
 
-// const passwordLength = length({min: 7, max: 72});
-// const matchesPassword = matches('password');
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($username:String!,$password:String!) {
@@ -20,24 +14,26 @@ const SIGNUP_MUTATION = gql`
       username
     }
   }
-`
+`;
+function routeToHome() {
+  navigate('/dashboard')  
+};
 
 export default class CreateAccount extends React.Component {
-
   state = {    
     password: '',
-    username: '',
-    
+    username: '',    
   };
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  render(){
+  render() {
     return (
       <Mutation mutation={SIGNUP_MUTATION}
-                variables={this.state}>
-        {(signup,{ error,loading }) => {
+                variables={this.state}
+                refetchQueries={[{ query: CURRENT_USER_QUERY }]}>
+        {(signup,{ data,error,loading }) => {
+          if(data){routeToHome(data)}
         return (  
         <div className="loginPage">
           <Form method='post'
@@ -74,4 +70,3 @@ export default class CreateAccount extends React.Component {
     )
   }
 }
-
