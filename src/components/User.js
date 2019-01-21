@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 const CURRENT_USER_QUERY = gql` 
   query {
     me {           
-        password
-        username    
+      username    
     }
   }     
 `;

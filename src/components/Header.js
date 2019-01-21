@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 import User from './User';
 import './styles/header.css';
 import Spinner from 'react-spinkit';
-
+import SignOut from './SignOut';
 // import { signUserOut } from '../../actions/auth';
 // import { signingUserOut } from "../../actions/userActions";
 
@@ -59,7 +59,7 @@ import Spinner from 'react-spinkit';
                     <button className="navLinkButtons">My recipes</button>
                   </Link> 
                   <Link to="/" >
-                    <button className="navLinkButtons" onClick={ () => { this.handleSignOut() } }>Sign Out</button>
+                    <SignOut />
                   </Link> 
                 </div>
               </div>
