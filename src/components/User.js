@@ -8,8 +8,12 @@ const CURRENT_USER_QUERY = gql`
     me {           
       username    
     }
+    recipesForUser {
+    recipeId
+  }
   }     
 `;
+
 
 const User = props => {
   return (

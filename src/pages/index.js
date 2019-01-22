@@ -11,6 +11,7 @@ import SearchResults from './searchResults';
 import SingleRecipe from './singleRecipe';
 import SignIn from './signIn';
 import SignUp from './signUp';
+import UserRecipes from './userRecipes';
 
 export default function Pages() {
   return (
@@ -24,6 +25,7 @@ export default function Pages() {
           <SingleRecipe path="/singleRecipe/*" />
           <SignIn path='/signIn' />          
           <SignUp path='/signUp' />          
+          <UserRecipes path='/myRecipes' />          
         </Router>
       </PageContainer>      
     </Fragment>

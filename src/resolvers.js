@@ -58,7 +58,7 @@ export const resolvers = {
        data,
        value,
        __typename:"updateCurrentRecipe"
-     })   
-     },
+      })   
+    },
   },
 }

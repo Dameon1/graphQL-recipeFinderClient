@@ -9,12 +9,9 @@ import './styles/singleRecipe.css';
 export const GET_RECIPE_BY_ID = gql`
   query fetchRecipesFromSpoonacularById ($id: Int!){
     fetchRecipesFromSpoonacularById(id:$id){
-      instructions
-      usedIngredientCount
       image
       title
       id
-      missedIngredientCount
       analyzedInstructions {
         steps {
           step
@@ -23,6 +20,14 @@ export const GET_RECIPE_BY_ID = gql`
     }
   }
 `;
+
+export const SAVE_RECIPE = gql`
+  mutation SAVE_RECIPE($userId:String!,$recipeId:Int){
+    saveRecipe(userId:$userId,recipeId:$recipeId) {
+      id
+    }
+  }
+`
 
 export class SingleRecipeDisplay extends React.Component {
 
@@ -62,6 +67,7 @@ export class SingleRecipeDisplay extends React.Component {
                   { instructions }        
                 </div>
               </div>
+              
             </Fragment>
           </div>
           )
