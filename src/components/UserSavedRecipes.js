@@ -17,12 +17,12 @@ export const USER_SAVED_RECIPES = gql`
 
 export default class UserSavedRecipes extends Component {
   render() {
+    
     return (
      <Query query={USER_SAVED_RECIPES} fetchPolicy="network-only">
       {({ data, loading, error }) => {
         if (loading) return <Spinner spinnername="circle" fadeIn='none' />;
-        if (error) return <p>ERROR: {error.message}</p>;
-        
+        if (error) return <p>ERROR: {error.message}</p>;        
         const results = data.fetchRecipesFromSpoonacularInBulk.map((recipe,i) => <UserDisplayedRecipes props={recipe} key={i}>{recipe.title}</UserDisplayedRecipes>);
         return results;        
       }}

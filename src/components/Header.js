@@ -4,15 +4,8 @@ import User from './User';
 import './styles/header.css';
 import Spinner from 'react-spinkit';
 import SignOut from './SignOut';
-// import { signUserOut } from '../../actions/auth';
-// import { signingUserOut } from "../../actions/userActions";
 
  export default class Header extends React.Component {
-
-//   handleSignOut() {
-//    this.props.dispatch(signingUserOut());
-//    this.props.dispatch(signUserOut());
-//   };
 
 //TODO SEPARATE HEADERS INTO SEPARATE FILES
   render() {
@@ -68,11 +61,5 @@ import SignOut from './SignOut';
         }}
       </User>
     )
-
-    // if (!this.props.loggedIn) {
-    //   return (
-        
-    // )}
-     
   };
 };

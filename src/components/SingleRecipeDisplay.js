@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import Spinner from 'react-spinkit';
 import getState from '../actions/getCurrentState';
 import './styles/singleRecipe.css';
+import UserSavedRecipes from '../actions/getUserSavedRecipes';
 
 export const GET_RECIPE_BY_ID = gql`
   query fetchRecipesFromSpoonacularById ($id: Int!){
@@ -42,7 +43,6 @@ export class SingleRecipeDisplay extends React.Component {
       {({ data, loading, error }) => {
         if (loading) return <Spinner spinnername="circle" fadeIn='none' />;
         if (error) return <p>ERROR: {error.message}</p>;
-
         let item = data.fetchRecipesFromSpoonacularById;
         let instructions = "No instructions available at this time";
         if (!item) { return }
@@ -54,7 +54,7 @@ export class SingleRecipeDisplay extends React.Component {
                 </div>
                 )
               });
-            }
+        }
         return (
           <div className='recipesDisplayBox'>
             <Fragment> 
@@ -64,20 +64,32 @@ export class SingleRecipeDisplay extends React.Component {
                     src={ item.image } 
                     alt={ item.title } 
                 />
+                
                 <div className='recipeInstructions'>         
                   { instructions }        
                 </div>
-                <Mutation mutation={SAVE_RECIPE} variables={{recipeId:item.id}} >
-                {(saveRecipe,{ data, loading, error }) => {
-
-                  console.log(data)
-                  return (
-                    <button onClick={()=>saveRecipe(item.id)}>Click Me</button>
-                  )
-                }}
-                </Mutation>
-              </div>
-              
+                {!this.props.me ? null : 
+                  <Mutation mutation={SAVE_RECIPE} variables={{recipeId:item.id}} >
+                    {(saveRecipe,{ data, loading, error }) => {
+                      return (
+                        <UserSavedRecipes>
+                          {({ data, loading, error, refetch }) => {
+                            if(this.props.recipesForUser !== undefined){console.log(data.recipesForUser.map(recipe=>recipe))}
+                            if(data.recipesForUser !== undefined ){
+                            //console.log(data.recipesForUser.includes(item.id)) }
+                            console.log(data.recipesForUser.map(recipe=>recipe.recipeId).includes(item.id))}
+                            
+                       return (<button onClick={()=>{
+                        saveRecipe(item.id)
+                        refetch()
+                      }}>Click Me</button>)
+                      }}
+                        </UserSavedRecipes>
+                      )
+                    }}
+                  </Mutation>
+                }
+                </div>              
             </Fragment>
           </div>
           )
@@ -89,9 +101,9 @@ export class SingleRecipeDisplay extends React.Component {
 
 export default compose(
   graphql(getState,{
-    props: ({ data: { currentState,me }
+    props: ({ data: { currentState,me,recipesForUser }
     }) => ({   
-     currentState,me   
+     currentState,me,recipesForUser   
    })  
  })
 )(SingleRecipeDisplay)
