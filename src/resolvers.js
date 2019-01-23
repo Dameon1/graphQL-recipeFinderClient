@@ -15,15 +15,7 @@ export const typeDefs = gql`
 `;
 
 export const resolvers = {
-  Mutation: {
-    // addApiRecipes: (_, { loading, error }, { cache }) => {
-    //   const { apiRecipes } = cache.readQuery({ query: Query_Recipes });
-    //   const data = {
-    //     addApiRecipes: apiRecipes
-    //   };
-    //   cache.writeData({ query: Query_Recipes, data });
-    //   return data.apiRecipes;
-    // },
+  Mutation: {    
     updateCurrentSearchTerm: (_,{value},{cache}) => {
       const query = GET_CURRENT_STATE
       const previousState = cache.readQuery({ query });
@@ -35,7 +27,6 @@ export const resolvers = {
         }
      }
      cache.writeData({query,data})
-     console.log(data)
      return ({
        data,
        value,
@@ -53,7 +44,6 @@ export const resolvers = {
         }
      }
      cache.writeData({query,data})
-     console.log(data)
      return ({
        data,
        value,

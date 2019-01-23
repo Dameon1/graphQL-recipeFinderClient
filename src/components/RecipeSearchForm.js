@@ -81,12 +81,11 @@ export class RecipeSearchForm extends React.Component {
   };  
 
   render() {
-    const {currentUser} = this.props.currentState;
     return (
       <div className="dashboard">
         <div className="">
           <h2 className="dashboardHeading">
-            Welcome {currentUser} to what2eat 
+            Welcome {this.props.currentState===undefined? null: this.props.currentState.currentUser} to what2eat 
           </h2>
         </div>
         <div>

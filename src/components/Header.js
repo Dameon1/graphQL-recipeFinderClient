@@ -12,7 +12,6 @@ import SignOut from './SignOut';
     return (      
       <User>
         {(data) => {
-          console.log(data.loading);
           if(data.loading) {
            return <Spinner spinnername="circle" fadeIn='none' />;
           }

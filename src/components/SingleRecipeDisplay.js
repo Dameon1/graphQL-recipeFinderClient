@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
-import { Query, graphql, compose, Mutation } from 'react-apollo';
+import { Query, graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import Spinner from 'react-spinkit';
 import getState from '../actions/getCurrentState';
 import './styles/singleRecipe.css';
 import UserSavedRecipes from '../actions/getUserSavedRecipes';
+import SaveUserRecipe from '../actions/saveUserRecipe';
+import DeleteUserRecipe from '../actions/deleteUserRecipe';
 
 export const GET_RECIPE_BY_ID = gql`
   query fetchRecipesFromSpoonacularById ($id: Int!){
@@ -21,25 +23,17 @@ export const GET_RECIPE_BY_ID = gql`
   }
 `;
 
-export const SAVE_RECIPE = gql`
-  mutation SAVE_RECIPE($recipeId:Int){
-    saveRecipe(recipeId:$recipeId) {
-      recipeId
-    }
-  }
-`;
 
 export class SingleRecipeDisplay extends React.Component {
   
   render() {
    let location = window.location.pathname.split('/')
-   console.log(this.props)
-    //const isLoggedIn = this.props.me.username
     return (
       <Query query={GET_RECIPE_BY_ID}
-           variables= {{
-             id: parseInt(location[2],10)
-           }} >
+             fetchPolicy='network-only' 
+             variables= {{
+              id: parseInt(location[2],10)
+            }} >
       {({ data, loading, error }) => {
         if (loading) return <Spinner spinnername="circle" fadeIn='none' />;
         if (error) return <p>ERROR: {error.message}</p>;
@@ -60,34 +54,41 @@ export class SingleRecipeDisplay extends React.Component {
             <Fragment> 
               <div className='recipeOverview'>
                 <h2 className='singleRecipeDisplayTitleText'>{ item.title }</h2>
-                <img className="sigleRecipeImage" 
+                <img className="singleRecipeImage" 
                     src={ item.image } 
                     alt={ item.title } 
-                />
-                
+                />                
                 <div className='recipeInstructions'>         
                   { instructions }        
                 </div>
-                {!this.props.me ? null : 
-                  <Mutation mutation={SAVE_RECIPE} variables={{recipeId:item.id}} >
-                    {(saveRecipe,{ data, loading, error }) => {
-                      return (
-                        <UserSavedRecipes>
-                          {({ data, loading, error, refetch }) => {
-                            if(this.props.recipesForUser !== undefined){console.log(data.recipesForUser.map(recipe=>recipe))}
-                            if(data.recipesForUser !== undefined ){
-                            //console.log(data.recipesForUser.includes(item.id)) }
-                            console.log(data.recipesForUser.map(recipe=>recipe.recipeId).includes(item.id))}
-                            
-                       return (<button onClick={()=>{
-                        saveRecipe(item.id)
-                        refetch()
-                      }}>Click Me</button>)
-                      }}
-                        </UserSavedRecipes>
-                      )
-                    }}
-                  </Mutation>
+                {!this.props.me ? null :
+                  <UserSavedRecipes>
+                    {({ data, loading, error, refetch }) => { 
+                      if(data.recipesForUser !== undefined ) {
+                        if(data.recipesForUser.map(recipe=>recipe.recipeId).includes(item.id)){
+                         return ( 
+                          <DeleteUserRecipe variables={{recipeId:item.id}}>
+                              {(deleteRecipe) => {
+                                return (<button onClick={ async() => {
+                                  await deleteRecipe(item.id)
+                                  refetch() }}>REMOVE</button>)
+                              }}
+                            </DeleteUserRecipe>)
+                        } else {
+                          return (
+                            <SaveUserRecipe variables={{recipeId:item.id}}>
+                              { (saveRecipe) => {
+                                return (<button onClick={ async() => {
+                                  await saveRecipe(item.id)
+                                  refetch() }}>ADD</button>)
+                              }}
+                            </SaveUserRecipe>)
+                        }                  
+                  };
+                  return null;                
+                }                  
+                }
+                </UserSavedRecipes>
                 }
                 </div>              
             </Fragment>
