@@ -8,5 +8,8 @@ export default gql`
       currentUser
       currentRecipe
     }
+    me @client{
+      username
+    }
   }
 `;
