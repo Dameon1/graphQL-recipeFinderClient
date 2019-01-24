@@ -14,7 +14,6 @@ export default class Header extends React.Component {
           if (data.loading) {
             return <Spinner spinnername="circle" fadeIn="none" />;
           }
-          console.log(data.data.me);
           if (!data.data.me) {
             return (
               <div className="header">

@@ -88,7 +88,6 @@ export class RecipeSearchForm extends React.Component {
       queryString += checkbox + ",";
     }
     let recipeString = queryString.slice(0, -1);
-    console.log(recipeString);
     await this.setState({
       queryString: recipeString
     });
@@ -98,7 +97,6 @@ export class RecipeSearchForm extends React.Component {
       }
     });
     navigate("/searchResults");
-    console.log(this.props);
   };
 
   render() {

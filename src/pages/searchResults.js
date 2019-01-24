@@ -32,7 +32,6 @@ export class SearchResults extends React.Component {
         {({ data, loading, error }) => {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
-          console.log(data.fetchRecipesFromSpoonacular);
           return (
             <div className="recipesDisplayBox">
               <Fragment>
