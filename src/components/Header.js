@@ -29,7 +29,7 @@ export default class Header extends React.Component {
                   <Link to="/dashboard">
                     <button className="navLinkButtons">Dashboard</button>
                   </Link>
-                  <Link to="/">
+                  <Link to="/graphQL-recipeFinderClient">
                     <button className="navLinkButtons">Home</button>
                   </Link>
                 </div>
