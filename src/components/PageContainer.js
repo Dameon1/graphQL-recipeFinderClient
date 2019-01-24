@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
 export default function PageContainer(props) {
   return (
-    <Fragment>      
+    <Fragment>
       <div>{props.children}</div>
     </Fragment>
   );
-};
+}

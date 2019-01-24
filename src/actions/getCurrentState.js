@@ -1,5 +1,5 @@
 //TODO*****CREATE INDEX FILE FOR ACTIONS
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export default gql`
   query {
@@ -8,7 +8,7 @@ export default gql`
       currentUser
       currentRecipe
     }
-    me @client{
+    me @client {
       username
     }
   }
