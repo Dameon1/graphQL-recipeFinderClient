@@ -1,33 +1,33 @@
-import React, { Fragment } from 'react';
-import { Router } from '@reach/router';
+import React, { Fragment } from "react";
+import { Router } from "@reach/router";
 
-import PageContainer from '../components/PageContainer';
-import Header from '../components/Header';
-import LandingPage from '../components/LandingPage';
+import PageContainer from "../components/PageContainer";
+import Header from "../components/Header";
+import LandingPage from "../components/LandingPage";
 
-import '../components/styles/landingPage.css';
-import Dashboard from './dashboard';
-import SearchResults from './searchResults';
-import SingleRecipe from './singleRecipe';
-import SignIn from './signIn';
-import SignUp from './signUp';
-import UserRecipes from './userRecipes';
+import "../components/styles/landingPage.css";
+import Dashboard from "./dashboard";
+import SearchResults from "./searchResults";
+import SingleRecipe from "./singleRecipe";
+import SignIn from "./signIn";
+import SignUp from "./signUp";
+import UserRecipes from "./userRecipes";
 
 export default function Pages() {
   return (
     <Fragment>
       <PageContainer>
-        <Header />        
+        <Header />
         <Router primary={false} component={Fragment}>
-          <LandingPage path='/' /> 
+          <LandingPage path="/graphQL-recipeFinderClient" />
           <Dashboard path="/dashboard" />
           <SearchResults path="/searchResults" />
           <SingleRecipe path="/singleRecipe/*" />
-          <SignIn path='/signIn' />          
-          <SignUp path='/signUp' />          
-          <UserRecipes path='/myRecipes' />          
+          <SignIn path="/signIn" />
+          <SignUp path="/signUp" />
+          <UserRecipes path="/myRecipes" />
         </Router>
-      </PageContainer>      
+      </PageContainer>
     </Fragment>
   );
 }
@@ -37,4 +37,4 @@ export default function Pages() {
          <Route exact path='/searchedRecipes' component={ Content } />
          <Route exact path='/myRecipes' component={ UserSavedRecipes } />
          <Route path='/recipe/:id' component={ SingleRecipe } />
-*/ 
+*/

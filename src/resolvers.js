@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-import GET_CURRENT_STATE from './actions/getCurrentState';
+import gql from "graphql-tag";
+import GET_CURRENT_STATE from "./actions/getCurrentState";
 //import { Query_Recipes } from  './components/display/RecipeSearchForm';;
 
 export const typeDefs = gql`
@@ -15,9 +15,9 @@ export const typeDefs = gql`
 `;
 
 export const resolvers = {
-  Mutation: {    
-    updateCurrentSearchTerm: (_,{value},{cache}) => {
-      const query = GET_CURRENT_STATE
+  Mutation: {
+    updateCurrentSearchTerm: (_, { value }, { cache }) => {
+      const query = GET_CURRENT_STATE;
       const previousState = cache.readQuery({ query });
       const data = {
         ...previousState,
@@ -25,16 +25,16 @@ export const resolvers = {
           ...previousState.currentState,
           currentSearchTerm: value
         }
-     }
-     cache.writeData({query,data})
-     return ({
-       data,
-       value,
-       __typename:"updateCurrentSearchTerm"
-     })   
-     },
-    updateCurrentRecipe: (_,{value},{cache}) => {
-      const query = GET_CURRENT_STATE
+      };
+      cache.writeData({ query, data });
+      return {
+        data,
+        value,
+        __typename: "updateCurrentSearchTerm"
+      };
+    },
+    updateCurrentRecipe: (_, { value }, { cache }) => {
+      const query = GET_CURRENT_STATE;
       const previousState = cache.readQuery({ query });
       const data = {
         ...previousState,
@@ -42,13 +42,13 @@ export const resolvers = {
           ...previousState.currentState,
           currentRecipe: value
         }
-     }
-     cache.writeData({query,data})
-     return ({
-       data,
-       value,
-       __typename:"updateCurrentRecipe"
-      })   
-    },
-  },
-}
+      };
+      cache.writeData({ query, data });
+      return {
+        data,
+        value,
+        __typename: "updateCurrentRecipe"
+      };
+    }
+  }
+};

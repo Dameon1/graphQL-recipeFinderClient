@@ -1,64 +1,60 @@
 import React from "react";
-import { Link } from '@reach/router';
-import User from './User';
-import './styles/header.css';
-import Spinner from 'react-spinkit';
-import SignOut from './SignOut';
+import { Link } from "@reach/router";
+import User from "./User";
+import "./styles/header.css";
+import Spinner from "react-spinkit";
+import SignOut from "./SignOut";
 
- export default class Header extends React.Component {
-
-//TODO SEPARATE HEADERS INTO SEPARATE FILES
+export default class Header extends React.Component {
+  //TODO SEPARATE HEADERS INTO SEPARATE FILES
   render() {
-    return (      
+    return (
       <User>
-        {(data) => {
-          if(data.loading) {
-           return <Spinner spinnername="circle" fadeIn='none' />;
+        {data => {
+          if (data.loading) {
+            return <Spinner spinnername="circle" fadeIn="none" />;
           }
-          if(!data.data.me) {
+          console.log(data.data.me);
+          if (!data.data.me) {
             return (
-              <div className='header'>
-                <h1 className="headerText">
-                  what2eat
-                </h1>
+              <div className="header">
+                <h1 className="headerText">what2eat</h1>
                 <div className="navLinks">
-                  <Link to="/signIn" >
+                  <Link to="/signIn">
                     <button className="navLinkButtons">Login</button>
                   </Link>
-                  <Link to="/signUp" >
+                  <Link to="/signUp">
                     <button className="navLinkButtons">Sign up</button>
-                  </Link>  
-                  <Link to="/dashboard" >
-                    <button className="navLinkButtons" >Dashboard</button>
                   </Link>
-                  <Link to="/" >
+                  <Link to="/dashboard">
+                    <button className="navLinkButtons">Dashboard</button>
+                  </Link>
+                  <Link to="/">
                     <button className="navLinkButtons">Home</button>
                   </Link>
                 </div>
               </div>
-            )
+            );
           } else {
             return (
-              <div className='header'>
-                <h1 className="headerText">
-                  what2eat
-                </h1>
+              <div className="header">
+                <h1 className="headerText">what2eat</h1>
                 <div className="navLinks">
-                  <Link to="/dashboard" >
+                  <Link to="/dashboard">
                     <button className="navLinkButtons">Dashboard</button>
                   </Link>
-                  <Link to="/myRecipes" >
+                  <Link to="/myRecipes">
                     <button className="navLinkButtons">My recipes</button>
-                  </Link> 
-                  <Link to="/" >
+                  </Link>
+                  <Link to="/graphQL-recipeFinderClient">
                     <SignOut />
-                  </Link> 
+                  </Link>
                 </div>
               </div>
-          )
+            );
           }
         }}
       </User>
-    )
-  };
-};
+    );
+  }
+}

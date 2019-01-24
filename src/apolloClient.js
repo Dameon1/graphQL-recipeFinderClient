@@ -1,32 +1,28 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import {resolvers} from './resolvers';
-import API_BASE_URL from './config';
+import ApolloClient, { InMemoryCache } from "apollo-boost";
+import { resolvers } from "./resolvers";
+import API_BASE_URL from "./config";
 const cache = new InMemoryCache();
 
 const defaultState = {
-  me:{
-    __typename:"currentUser",
-    username:""
-  },
   currentState: {
-    __typename: 'currentState',
-    currentSearchTerm:"",
+    __typename: "currentState",
+    currentSearchTerm: "",
     currentUser: "myself",
     currentRecipe: 0,
-    me:""
-  }  
-}
+    me: ""
+  }
+};
 
 export const client = new ApolloClient({
-  clientState:{     
+  clientState: {
     defaults: defaultState,
-    resolvers,    
+    resolvers
   },
   uri: API_BASE_URL,
-  credentials: 'include',   
+  credentials: "include",
   onError: ({ networkError, graphQLErrors }) => {
-    console.log('graphQLErrors', graphQLErrors)
-    console.log('networkError', networkError)
+    console.log("graphQLErrors", graphQLErrors);
+    console.log("networkError", networkError);
   },
-  cache,
+  cache
 });
