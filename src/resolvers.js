@@ -1,18 +1,6 @@
 //import gql from "graphql-tag";
 import GET_CURRENT_STATE from "./actions/getCurrentState";
 
-// export const typeDefs = gql`
-//   extend type Query {
-//     isLoggedIn: Boolean!
-//   }
-
-//   extend type Mutation {
-//     addApiRecipes: [Recipe]
-//     addUserRecipes: Recipe
-//     addUser: User
-//   }
-// `;
-
 export const resolvers = {
   Mutation: {
     updateCurrentSearchTerm: (_, { value }, { cache }) => {

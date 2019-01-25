@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import updateCurrentRecipe from "../actions/updateCurrentRecipe";
-import { graphql, compose } from "react-apollo";
-
-import getState from "../actions/getCurrentState";
 
 export class UserDisplayedRecipes extends Component {
   render() {
@@ -18,25 +14,11 @@ export class UserDisplayedRecipes extends Component {
         />
 
         <Link to={`/singleRecipe/${this.props.props.id}`}>
-          <button
-            className="getRecipeButton"
-            onClick={() =>
-              this.props.updateCurrentRecipe({ variables: { value: item.id } })
-            }
-          >
-            Get Recipe
-          </button>
+          <button className="getRecipeButton">Get Recipe</button>
         </Link>
       </div>
     );
   }
 }
 
-export default compose(
-  graphql(updateCurrentRecipe, { name: "updateCurrentRecipe" }),
-  graphql(getState, {
-    props: ({ data: { currentState } }) => ({
-      currentState
-    })
-  })
-)(UserDisplayedRecipes);
+export default UserDisplayedRecipes;

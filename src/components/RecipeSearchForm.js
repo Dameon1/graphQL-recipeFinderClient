@@ -1,11 +1,8 @@
 import React from "react";
 import { navigate } from "@reach/router";
-//import { graphql, compose } from "react-apollo";
 
 import "./styles/recipeSearchForm.css";
 import Checkbox from "./Checkbox";
-//import getState from "../actions/getCurrentState";
-//import updateCurrentSearchTerm from "../actions/updateCurrentSearchTerm";
 
 export default class RecipeSearchForm extends React.Component {
   constructor(props) {
@@ -87,15 +84,6 @@ export default class RecipeSearchForm extends React.Component {
     for (const checkbox of this.selectedCheckboxes) {
       queryString += checkbox + ",";
     }
-    //let recipeString = queryString.slice(0, -1);
-    // await this.setState({
-    //   queryString: recipeString
-    // });
-    // this.props.updateCurrentSearchTerm({
-    //   variables: {
-    //     value: this.state.queryString
-    //   }
-    // });
     navigate(`/search/${queryString}`);
   };
 
@@ -146,12 +134,3 @@ export default class RecipeSearchForm extends React.Component {
     );
   }
 }
-
-// export default compose(
-//   graphql(updateCurrentSearchTerm, { name: "updateCurrentSearchTerm" }),
-//   graphql(getState, {
-//     props: ({ data: { currentState } }) => ({
-//       currentState
-//     })
-//   })
-// )(RecipeSearchForm);

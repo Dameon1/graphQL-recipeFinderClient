@@ -23,6 +23,7 @@ export const GET_RECIPE_BY_ID = gql`
   }
 `;
 
+//********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
   render() {
     let location = window.location.pathname.split("/");
