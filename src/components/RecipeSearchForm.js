@@ -1,13 +1,13 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { graphql, compose } from "react-apollo";
+//import { graphql, compose } from "react-apollo";
 
 import "./styles/recipeSearchForm.css";
 import Checkbox from "./Checkbox";
-import getState from "../actions/getCurrentState";
-import updateCurrentSearchTerm from "../actions/updateCurrentSearchTerm";
+//import getState from "../actions/getCurrentState";
+//import updateCurrentSearchTerm from "../actions/updateCurrentSearchTerm";
 
-export class RecipeSearchForm extends React.Component {
+export default class RecipeSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,23 +80,23 @@ export class RecipeSearchForm extends React.Component {
 
   handleFormSubmit = async formSubmitEvent => {
     formSubmitEvent.preventDefault();
-    let queryString = "";
+    let queryString = "?q=";
     if (this.selectedCheckboxes.size === 0) {
       return alert("Please select some ingredients");
     }
     for (const checkbox of this.selectedCheckboxes) {
       queryString += checkbox + ",";
     }
-    let recipeString = queryString.slice(0, -1);
-    await this.setState({
-      queryString: recipeString
-    });
-    this.props.updateCurrentSearchTerm({
-      variables: {
-        value: this.state.queryString
-      }
-    });
-    navigate("/searchResults");
+    //let recipeString = queryString.slice(0, -1);
+    // await this.setState({
+    //   queryString: recipeString
+    // });
+    // this.props.updateCurrentSearchTerm({
+    //   variables: {
+    //     value: this.state.queryString
+    //   }
+    // });
+    navigate(`/search/${queryString}`);
   };
 
   render() {
@@ -147,11 +147,11 @@ export class RecipeSearchForm extends React.Component {
   }
 }
 
-export default compose(
-  graphql(updateCurrentSearchTerm, { name: "updateCurrentSearchTerm" }),
-  graphql(getState, {
-    props: ({ data: { currentState } }) => ({
-      currentState
-    })
-  })
-)(RecipeSearchForm);
+// export default compose(
+//   graphql(updateCurrentSearchTerm, { name: "updateCurrentSearchTerm" }),
+//   graphql(getState, {
+//     props: ({ data: { currentState } }) => ({
+//       currentState
+//     })
+//   })
+// )(RecipeSearchForm);

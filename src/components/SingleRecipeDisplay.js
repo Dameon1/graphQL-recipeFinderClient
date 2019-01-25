@@ -9,7 +9,7 @@ import SaveUserRecipe from "../actions/saveUserRecipe";
 import DeleteUserRecipe from "../actions/deleteUserRecipe";
 
 export const GET_RECIPE_BY_ID = gql`
-  query fetchRecipesFromSpoonacularById($id: Int!) {
+  query fetchRecipesFromSpoonacularById($id: Int) {
     fetchRecipesFromSpoonacularById(id: $id) {
       image
       title
@@ -29,7 +29,7 @@ export class SingleRecipeDisplay extends React.Component {
     return (
       <Query
         query={GET_RECIPE_BY_ID}
-        fetchPolicy="network-only"
+        fetchPolicy="cache and network"
         variables={{
           id: parseInt(location[2], 10)
         }}
@@ -64,6 +64,7 @@ export class SingleRecipeDisplay extends React.Component {
                     alt={item.title}
                   />
                   <div className="recipeInstructions">{instructions}</div>
+                  {console.log(this.props)}
                   {!this.props.me ? null : (
                     <UserSavedRecipes>
                       {({ data, loading, error, refetch }) => {

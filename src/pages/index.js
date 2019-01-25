@@ -7,7 +7,7 @@ import LandingPage from "../components/LandingPage";
 
 import "../components/styles/landingPage.css";
 import Dashboard from "./dashboard";
-import SearchResults from "./searchResults";
+import Search from "./search";
 import SingleRecipe from "./singleRecipe";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
@@ -21,7 +21,7 @@ export default function Pages() {
         <Router primary={false} component={Fragment}>
           <LandingPage path="/graphQL-recipeFinderClient" />
           <Dashboard path="/dashboard" />
-          <SearchResults path="/searchResults" />
+          <Search path="/search/*" />
           <SingleRecipe path="/singleRecipe/*" />
           <SignIn path="/signIn" />
           <SignUp path="/signUp" />

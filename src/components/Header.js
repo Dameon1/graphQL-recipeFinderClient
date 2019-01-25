@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 import User from "./User";
 import "./styles/header.css";
-import Spinner from "react-spinkit";
 import SignOut from "./SignOut";
 
 export default class Header extends React.Component {
@@ -11,9 +10,6 @@ export default class Header extends React.Component {
     return (
       <User>
         {data => {
-          if (data.loading) {
-            return <Spinner spinnername="circle" fadeIn="none" />;
-          }
           if (!data.data.me) {
             return (
               <div className="header">

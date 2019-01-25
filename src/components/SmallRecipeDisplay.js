@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql, compose } from "react-apollo";
+// import { graphql, compose } from "react-apollo";
 import { Link } from "@reach/router";
 
-import getState from "../actions/getCurrentState";
-import updateCurrentRecipe from "../actions/updateCurrentRecipe";
+// import getState from "../actions/getCurrentState";
+// import updateCurrentRecipe from "../actions/updateCurrentRecipe";
 
-export class SmallRecipeDisplay extends React.Component {
+export default class SmallRecipeDisplay extends React.Component {
   render() {
     const { props } = this.props;
     return (
@@ -21,9 +21,9 @@ export class SmallRecipeDisplay extends React.Component {
         <Link to={`/singleRecipe/${props.id}`}>
           <button
             className="getRecipeButton"
-            onClick={() =>
-              this.props.updateCurrentRecipe({ variables: { value: props.id } })
-            }
+            // onClick={() =>
+            //   this.props.updateCurrentRecipe({ variables: { value: props.id } })
+            //}
           >
             Get Recipe
           </button>
@@ -33,11 +33,11 @@ export class SmallRecipeDisplay extends React.Component {
   }
 }
 
-export default compose(
-  graphql(updateCurrentRecipe, { name: "updateCurrentRecipe" }),
-  graphql(getState, {
-    props: ({ data: { currentState } }) => ({
-      currentState
-    })
-  })
-)(SmallRecipeDisplay);
+// export default compose(
+//   graphql(updateCurrentRecipe, { name: "updateCurrentRecipe" }),
+//   graphql(getState, {
+//     props: ({ data: { currentState } }) => ({
+//       currentState
+//     })
+//   })
+// )(SmallRecipeDisplay);

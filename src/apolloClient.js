@@ -8,8 +8,7 @@ const defaultState = {
     __typename: "currentState",
     currentSearchTerm: "",
     currentUser: "myself",
-    currentRecipe: 0,
-    me: ""
+    currentRecipe: 0,   
   }
 };
 

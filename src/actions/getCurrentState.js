@@ -8,7 +8,7 @@ export default gql`
       currentUser
       currentRecipe
     }
-    me @client {
+    me {
       username
     }
   }
