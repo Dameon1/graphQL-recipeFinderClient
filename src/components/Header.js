@@ -24,7 +24,7 @@ export default class Header extends React.Component {
                   <Link to="/dashboard">
                     <button className="navLinkButtons">Dashboard</button>
                   </Link>
-                  <Link to="/graphQL-recipeFinderClient">
+                  <Link to="/">
                     <button className="navLinkButtons">Home</button>
                   </Link>
                 </div>
@@ -41,7 +41,7 @@ export default class Header extends React.Component {
                   <Link to="/myRecipes">
                     <button className="navLinkButtons">My recipes</button>
                   </Link>
-                  <Link to="/graphQL-recipeFinderClient">
+                  <Link to="/">
                     <SignOut />
                   </Link>
                 </div>

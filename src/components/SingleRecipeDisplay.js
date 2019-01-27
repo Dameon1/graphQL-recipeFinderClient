@@ -65,7 +65,6 @@ export class SingleRecipeDisplay extends React.Component {
                     alt={item.title}
                   />
                   <div className="recipeInstructions">{instructions}</div>
-                  {console.log(this.props)}
                   {!this.props.me ? null : (
                     <UserSavedRecipes>
                       {({ data, loading, error, refetch }) => {

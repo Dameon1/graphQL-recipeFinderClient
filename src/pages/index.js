@@ -19,7 +19,7 @@ export default function Pages() {
       <PageContainer>
         <Header />
         <Router primary={false} component={Fragment}>
-          <LandingPage path="/graphQL-recipeFinderClient" />
+          <LandingPage path="/" />
           <Dashboard path="/dashboard" />
           <Search path="/search/*" />
           <SingleRecipe path="/singleRecipe/*" />
@@ -31,10 +31,3 @@ export default function Pages() {
     </Fragment>
   );
 }
-
-/*********  TODO
-         <Route exact path='/signUp' component={ SignUpForm } /> 
-         <Route exact path='/searchedRecipes' component={ Content } />
-         <Route exact path='/myRecipes' component={ UserSavedRecipes } />
-         <Route path='/recipe/:id' component={ SingleRecipe } />
-*/
