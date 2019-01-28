@@ -1,6 +1,11 @@
 import React from "react";
 import { navigate } from "@reach/router";
 
+import { SearchForm } from "./styles";
+import { DashboardHeading } from "./styles";
+import { RecipeSearchButton } from "./styles";
+import { AddIngredientButton } from "./styles";
+import { AddIngredientForm } from "./styles";
 import "./styles/recipeSearchForm.css";
 import Checkbox from "./Checkbox";
 
@@ -89,47 +94,42 @@ export default class RecipeSearchForm extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
-        <div className="">
-          <h2 className="dashboardHeading">
-            Welcome{" "}
-            {this.props.currentState === undefined
-              ? null
-              : this.props.currentState.currentUser}{" "}
-            to what2eat
-          </h2>
-        </div>
-        <div>
-          <form
-            className="addIngredientForm"
-            onSubmit={e => this.addIngredents(e)}
+      <div>
+        <DashboardHeading>
+          Welcome{" "}
+          {this.props.currentState === undefined
+            ? null
+            : this.props.currentState.currentUser}{" "}
+          to what2eat
+        </DashboardHeading>
+
+        <AddIngredientForm
+          onSubmit={e => this.addIngredents(e)}
+        >
+          <label
+            htmlFor="addIngredient"
+            aria-labelledby="addIngredient"
+            className="addIngredientLabel"
           >
-            <label
-              htmlFor="addIngredient"
-              aria-labelledby="addIngredient"
-              className="addIngredientLabel"
-            >
-              Add Your Special Ingredients Here
-            </label>
-            <input
-              className="addIngredientInputField"
-              type="text"
-              placeholder=" Add Ingredient"
-              name="addIngredient"
-              id="addIngredient"
-              ref={input => (this.input = input)}
-            />
-            <button className="addIngredientButton" type="submit">
-              Add
-            </button>
-          </form>
-          <form onSubmit={this.handleFormSubmit} className="recipeSearchForm">
-            {this.createCheckboxes()}
-            <button className="recipeSearchButton" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
+            Add Your Special Ingredients Here
+          </label>
+          <input
+            className="addIngredientInputField"
+            type="text"
+            placeholder=" Add Ingredient"
+            name="addIngredient"
+            id="addIngredient"
+            ref={input => (this.input = input)}
+          />
+          <AddIngredientButton type="submit">
+            Add
+          </AddIngredientButton>
+        </AddIngredientForm>
+
+        <SearchForm onSubmit={this.handleFormSubmit}>
+          {this.createCheckboxes()}
+          <RecipeSearchButton type="submit">Search</RecipeSearchButton>
+        </SearchForm>
       </div>
     );
   }

@@ -2,15 +2,13 @@ import React from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 
-
 //TODO********* CREATE INDEX FOR STYLED COMPONENTS*********
-import {Form} from "./styles";
-import {UserSignIn} from "./styles";
-import {SignInButton} from "./styles";
-import {SignInInput} from "./styles";
-import {Label} from "./styles";
+import { Form } from "./styles";
+import { UserSignIn } from "./styles";
+import { SignInButton } from "./styles";
+import { SignInInput } from "./styles";
+import { Label } from "./styles";
 
-import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
 import { navigate } from "@reach/router";
 import { CURRENT_USER_QUERY } from "./User";
@@ -65,9 +63,7 @@ export default class CreateAccount extends React.Component {
                   onChange={this.saveToState}
                   type="text"
                 />
-                <Label htmlFor="password">
-                  Password
-                </Label>
+                <Label htmlFor="password">Password</Label>
                 <SignInInput
                   type="password"
                   name="password"
