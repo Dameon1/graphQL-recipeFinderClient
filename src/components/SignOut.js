@@ -1,24 +1,14 @@
-//TODO: ****REMOVE "SIGN_OUT_MUTATION" TO ITS OWN ACTION*********
-
 import React from "react";
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
-import { CURRENT_USER_QUERY } from "./User";
+import CURRENT_USER from "../actions/currentUserQuery";
+import SIGN_OUT_MUTATION from "../actions/signOutMutation";
 import { NavButton } from "./styles";
-
-const SIGN_OUT_MUTATION = gql`
-  mutation SIGN_OUT_MUTATION {
-    signOutUser {
-      message
-    }
-  }
-`;
 
 const SignOut = props => {
   return (
     <Mutation
       mutation={SIGN_OUT_MUTATION}
-      refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+      refetchQueries={[{ query: CURRENT_USER }]}
     >
       {signOutUser => <NavButton onClick={signOutUser}>Sign out</NavButton>}
     </Mutation>

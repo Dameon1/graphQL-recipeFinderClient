@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-import { MultiRecipeButton,MultiRecipeImage } from "./styles";
+import { MultiRecipeButton, MultiRecipeImage } from "./styles";
 
 export class SmallRecipeDisplay extends React.Component {
   render() {

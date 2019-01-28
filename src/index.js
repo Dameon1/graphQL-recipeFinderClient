@@ -1,3 +1,5 @@
+//TODO:  **BETTER ERROR HANDLING FOR THE USER WHEN RETURNING "GRAPHQL ERRORS"****
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";

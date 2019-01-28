@@ -1,24 +1,15 @@
-//TODO: ****REMOVE "SIGNIN_MUTATION" TO ITS OWN ACTION*********
 
 import React from "react";
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
 import { navigate } from "@reach/router";
 
 import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 
 //import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
-import { CURRENT_USER_QUERY } from "./User";
-
+import CURRENT_USER from '../actions/currentUserQuery';
+import SIGNIN_MUTATION from '../actions/signInMutation';
 //TODO************ CREATE INDEX FOR ALL QUERY?MUTATIONS *********
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($username: String!, $password: String!) {
-    signInUser(username: $username, password: $password) {
-      username
-    }
-  }
-`;
 
 function routeToHome() {
   navigate("/dashboard");
@@ -37,7 +28,7 @@ export class SignIntoAccount extends React.Component {
       <Mutation
         mutation={SIGNIN_MUTATION}
         variables={this.state}
-        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        refetchQueries={[{ query: CURRENT_USER }]}
       >
         {(signInUser, { data, error, loading }) => {
           if (data) {

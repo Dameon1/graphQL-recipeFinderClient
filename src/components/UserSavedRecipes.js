@@ -1,22 +1,12 @@
 //TODO: ****REMOVE "USER_SAVED_RECIPES" TO ITS OWN ACTION*********
 
 import React, { Component } from "react";
-import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
 import UserDisplayedRecipes from "./UserDisplayedRecipes";
 //import Error from '../components/ErrorMessage';
 import { RecipeDisplayContainer } from "./styles";
-
-export const USER_SAVED_RECIPES = gql`
-  query USER_SAVED_RECIPES {
-    fetchRecipesFromSpoonacularInBulk {
-      image
-      title
-      id
-    }
-  }
-`;
+import USER_SAVED_RECIPES from "../actions/userSavedRecipesQuery";
 
 export class UserSavedRecipes extends Component {
   render() {

@@ -1,28 +1,10 @@
-//TODO: ****REMOVE "GET_MULTIPLE_API_RECIPES" TO ITS OWN ACTION*********
-
 import React, { Fragment } from "react";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import Spinner from "react-spinkit";
+
 import SmallRecipeDisplay from "../components/SmallRecipeDisplay";
-
+import GET_MULTIPLE_API_RECIPES from "../actions/getMultipleApiRecipesQuery";
 import { RecipeDisplayContainer } from "./styles";
-
-//import "../components/styles/multipleRecipesDisplay.css";
-
-export const GET_MULTIPLE_API_RECIPES = gql`
-  query getApiRecipes($queryString: String!) {
-    fetchRecipesFromSpoonacular(queryString: $queryString) {
-      instructions
-      usedIngredientCount
-      image
-      title
-      id
-      missedIngredientCount
-      errorMessage
-    }
-  }
-`;
 
 export class SearchResults extends React.Component {
   render() {

@@ -1,33 +1,19 @@
 /* 
-TODO: ****REMOVE "GET_RECIPE_BY_ID" TO ITS OWN ACTION*********
+TODO: 
       ****SEPERATE "DELETE AND SAVE" user recipes******** 
       ****CREATE STYLED COMPONENT FOR "recipesDisplayBox" **********
 */
 
 import React, { Fragment } from "react";
 import { Query, graphql, compose } from "react-apollo";
-import gql from "graphql-tag";
 import Spinner from "react-spinkit";
 import getState from "../actions/getCurrentState";
 import "./styles/singleRecipe.css";
 import UserSavedRecipes from "../actions/getUserSavedRecipes";
 import SaveUserRecipe from "../actions/saveUserRecipe";
 import DeleteUserRecipe from "../actions/deleteUserRecipe";
+import GET_RECIPE_BY_ID from '../actions/getRecipeByIdQuery';
 
-export const GET_RECIPE_BY_ID = gql`
-  query fetchRecipesFromSpoonacularById($id: Int) {
-    fetchRecipesFromSpoonacularById(id: $id) {
-      image
-      title
-      id
-      analyzedInstructions {
-        steps {
-          step
-        }
-      }
-    }
-  }
-`;
 
 //********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
