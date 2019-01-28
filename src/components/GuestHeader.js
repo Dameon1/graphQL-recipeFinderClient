@@ -4,7 +4,6 @@ import { NavButton } from "./styles";
 import "./styles/header.css";
 
 export default class GuestHeader extends React.Component {
-  //TODO SEPARATE HEADERS INTO SEPARATE FILES
   render() {
     return (
       <div className="header">

@@ -1,7 +1,7 @@
 import React from "react";
 import User from "./User";
 import GuestHeader from "./GuestHeader";
-import UserHeader from "./GuestHeader";
+import UserHeader from "./UserHeader";
 import "./styles/header.css";
 
 export default class Header extends React.Component {

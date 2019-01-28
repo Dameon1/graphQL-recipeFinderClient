@@ -12,3 +12,4 @@ export { default as AddIngredientForm } from "./addIngredientForm";
 export { default as AddIngredientLabel } from "./addIngredientLabel";
 export { default as AddIngredientInput } from "./addIngredientInput";
 export { default as IngredientBox } from "./ingredientBox";
+export { default as ErrorStyles } from "./errorStyles";
