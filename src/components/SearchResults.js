@@ -4,6 +4,8 @@ import gql from "graphql-tag";
 import Spinner from "react-spinkit";
 import SmallRecipeDisplay from "../components/SmallRecipeDisplay";
 
+import {RecipeDisplayContainer} from './styles';
+
 import "../components/styles/multipleRecipesDisplay.css";
 
 export const GET_MULTIPLE_API_RECIPES = gql`
@@ -34,13 +36,13 @@ export default class SearchResults extends React.Component {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
           return (
-            <div className="recipesDisplayBox">
+            <RecipeDisplayContainer>
               <Fragment>
                 {data.fetchRecipesFromSpoonacular.map((item, index) => {
                   return <SmallRecipeDisplay props={{ ...item }} key={index} />;
                 })}
               </Fragment>
-            </div>
+            </RecipeDisplayContainer>
           );
         }}
       </Query>

@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import { MultiRecipeImage } from "./styles";
+import { MultiRecipeButton } from "./styles";
 
 export class UserDisplayedRecipes extends Component {
   render() {
     const item = this.props.props;
     return (
-      <div className="recipeImageBox" key={item.index} value={item.id}>
+      <div className="recipeImageBox" key={item.id} value={item.id}>
+      {console.log(item.id)}
         {item.title}
-        <img
-          className="multipleRecipeImage"
+        <MultiRecipeImage
           src={item.image}
           alt={`Of ${item.title}`}
         />
 
         <Link to={`/singleRecipe/${this.props.props.id}`}>
-          <button className="getRecipeButton">Get Recipe</button>
+          <MultiRecipeButton>Get Recipe</MultiRecipeButton>
         </Link>
       </div>
     );

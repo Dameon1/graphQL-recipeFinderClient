@@ -1,14 +1,16 @@
 import React from "react";
 import { navigate } from "@reach/router";
 
-import { SearchForm } from "./styles";
-import { DashboardHeading } from "./styles";
-import { RecipeSearchButton } from "./styles";
-import { AddIngredientButton } from "./styles";
-import { AddIngredientForm } from "./styles";
-import { AddIngredientLabel } from "./styles";
-import { AddIngredientInput } from "./styles";
-//import "./styles/recipeSearchForm.css";
+import {
+  SearchForm,
+  DashboardHeading,
+  RecipeSearchButton,
+  AddIngredientButton,
+  AddIngredientForm,
+  AddIngredientLabel,
+  AddIngredientInput
+} from "./styles";
+
 import Checkbox from "./Checkbox";
 
 export default class RecipeSearchForm extends React.Component {

@@ -1,7 +1,7 @@
 import React from "react";
 import { IngredientBox } from "./styles";
 
-export default class Checkbox extends React.Component {
+export class Checkbox extends React.Component {
   state = {
     isChecked: false
   };
@@ -31,3 +31,5 @@ export default class Checkbox extends React.Component {
     );
   }
 }
+
+export default Checkbox;

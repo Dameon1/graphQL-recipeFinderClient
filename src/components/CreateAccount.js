@@ -25,7 +25,7 @@ function routeToHome() {
   navigate("/dashboard");
 }
 
-export default class CreateAccount extends React.Component {
+export class CreateAccount extends React.Component {
   state = {
     password: "",
     username: ""
@@ -85,3 +85,5 @@ export default class CreateAccount extends React.Component {
     );
   }
 }
+
+export default CreateAccount;
