@@ -15,3 +15,8 @@ export { default as IngredientBox } from "./ingredientBox";
 export { default as ErrorStyles } from "./errorStyles";
 export { default as Headline } from "./headline";
 export { default as HeadlineText } from "./headlineText";
+export { default as Landing } from "./landing";
+export { default as LandingHeader } from "./landingHeader";
+export { default as LandingSmallPrint } from "./landingHeader";
+export { default as LandingText } from "./landingText";
+export { default as LandingButton } from "./landingButton";

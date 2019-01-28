@@ -1,6 +1,6 @@
 
   
-.landingPageBox {
+/* .landingPageBox {
   margin:40px auto;
   background-color:#8FCFDE;
   height: 50vh;
@@ -8,13 +8,13 @@
   border-radius:5px;
   max-width:600px;
   width:80%;
-}
+} 
 
 .landingPageHeader {
   text-align: center;
   font-size:150%;
   padding-top:10px;
-}
+} */
 
 .landingPageBox > .smallPrint {
   text-align: center;
