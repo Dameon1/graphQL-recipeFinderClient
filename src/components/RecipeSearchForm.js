@@ -6,6 +6,8 @@ import { DashboardHeading } from "./styles";
 import { RecipeSearchButton } from "./styles";
 import { AddIngredientButton } from "./styles";
 import { AddIngredientForm } from "./styles";
+import { AddIngredientLabel } from "./styles";
+import { AddIngredientInput } from "./styles";
 import "./styles/recipeSearchForm.css";
 import Checkbox from "./Checkbox";
 
@@ -103,27 +105,21 @@ export default class RecipeSearchForm extends React.Component {
           to what2eat
         </DashboardHeading>
 
-        <AddIngredientForm
-          onSubmit={e => this.addIngredents(e)}
-        >
-          <label
+        <AddIngredientForm onSubmit={e => this.addIngredents(e)}>
+          <AddIngredientLabel
             htmlFor="addIngredient"
             aria-labelledby="addIngredient"
-            className="addIngredientLabel"
           >
             Add Your Special Ingredients Here
-          </label>
-          <input
-            className="addIngredientInputField"
+          </AddIngredientLabel>
+          <AddIngredientInput
             type="text"
             placeholder=" Add Ingredient"
             name="addIngredient"
             id="addIngredient"
             ref={input => (this.input = input)}
           />
-          <AddIngredientButton type="submit">
-            Add
-          </AddIngredientButton>
+          <AddIngredientButton type="submit">Add</AddIngredientButton>
         </AddIngredientForm>
 
         <SearchForm onSubmit={this.handleFormSubmit}>

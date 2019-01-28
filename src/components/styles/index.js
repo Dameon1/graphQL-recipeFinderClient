@@ -9,3 +9,5 @@ export { default as DashboardHeading } from "./dashboardHeading";
 export { default as RecipeSearchButton } from "./recipeSearchButton";
 export { default as AddIngredientButton } from "./addIngredientButton";
 export { default as AddIngredientForm } from "./addIngredientForm";
+export { default as AddIngredientLabel } from "./addIngredientLabel";
+export { default as AddIngredientInput } from "./addIngredientInput";
