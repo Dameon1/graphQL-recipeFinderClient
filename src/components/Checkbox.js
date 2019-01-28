@@ -1,4 +1,5 @@
 import React from "react";
+import {IngredientBox} from './styles';
 import "./styles/checkbox.css";
 
 export default class Checkbox extends React.Component {
@@ -17,7 +18,7 @@ export default class Checkbox extends React.Component {
     const { isChecked } = this.state;
 
     return (
-      <div className="checkbox" onClick={this.toggleCheckboxChange}>
+      <IngredientBox onClick={this.toggleCheckboxChange}>
         <label>
           <input
             type="checkbox"
@@ -27,7 +28,7 @@ export default class Checkbox extends React.Component {
           />
           {label}
         </label>
-      </div>
+      </IngredientBox>
     );
   }
 }

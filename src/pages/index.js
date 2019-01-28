@@ -18,7 +18,7 @@ export default function Pages() {
     <Fragment>
       <PageContainer>
         <Header />
-        <Router primary={false} component={Fragment}>
+        <Router primary={false}>
           <LandingPage path="/" />
           <Dashboard path="/dashboard" />
           <Search path="/search/*" />
