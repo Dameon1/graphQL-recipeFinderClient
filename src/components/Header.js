@@ -2,10 +2,9 @@ import React from "react";
 import User from "./User";
 import GuestHeader from "./GuestHeader";
 import UserHeader from "./UserHeader";
-import { Headline } from "./styles";
-import { HeadlineText } from "./styles";
+import { Headline, HeadlineText } from "./styles";
 
-export default class Header extends React.Component {
+export class Header extends React.Component {
   render() {
     return (
       <Headline>
@@ -23,3 +22,5 @@ export default class Header extends React.Component {
     );
   }
 }
+
+export default Header;

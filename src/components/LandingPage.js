@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-import { Landing } from "./styles";
-import { LandingHeader } from "./styles";
-import { LandingSmallPrint } from "./styles";
-import { LandingText } from "./styles";
-import { LandingButton } from "./styles";
-import "./styles/landingPage.css";
+import {
+  Landing,
+  LandingHeader,
+  LandingSmallPrint,
+  LandingText,
+  LandingButton
+} from "./styles";
 
-export default function LandingPage() {
+export function LandingPage() {
   return (
     <Landing>
       <LandingHeader>You Have Ingredients?</LandingHeader>
 
-      <LandingSmallPrint> (Find recipes for those ingredients!) </LandingSmallPrint>
+      <LandingSmallPrint>
+        {" "}(Find recipes for those ingredients!){" "}
+      </LandingSmallPrint>
 
       <LandingText>Sign up today to enjoy full features</LandingText>
 
@@ -29,3 +32,5 @@ export default function LandingPage() {
     </Landing>
   );
 }
+
+export default LandingPage;

@@ -1,3 +1,5 @@
+//TODO    ****CREATE STYLED COMPONENT FOR "recipeImageBox"
+
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import { MultiRecipeImage } from "./styles";

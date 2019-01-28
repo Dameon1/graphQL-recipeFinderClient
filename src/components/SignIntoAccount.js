@@ -1,16 +1,13 @@
+//TODO: ****REMOVE "SIGNIN_MUTATION" TO ITS OWN ACTION*********
+
 import React from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import { navigate } from "@reach/router";
 
-//TODO********* CREATE INDEX FOR STYLED COMPONENTS*********
-import {Form} from "./styles";
-import {UserSignIn} from "./styles";
-import {SignInButton} from "./styles";
-import {SignInInput} from "./styles";
-import {Label} from "./styles";
+import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 
-import "./styles/userLogin.css";
+//import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
 import { CURRENT_USER_QUERY } from "./User";
 

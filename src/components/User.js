@@ -1,3 +1,5 @@
+//TODO: ****REMOVE "CURRENT_USER_QUERY" TO ITS OWN ACTION*********
+
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";

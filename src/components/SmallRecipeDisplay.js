@@ -1,10 +1,9 @@
+//TODO    ****CREATE STYLED COMPONENT FOR "recipeImageBox" and "multipleRecipeTitle"**********
+
 import React from "react";
 import { Link } from "@reach/router";
 
-import { MultiRecipeContainers } from "./styles";
-
-import { MultiRecipeButton } from "./styles";
-import { MultiRecipeImage } from "./styles";
+import { MultiRecipeButton,MultiRecipeImage } from "./styles";
 
 export class SmallRecipeDisplay extends React.Component {
   render() {

@@ -1,3 +1,9 @@
+/* 
+TODO: ****REMOVE "GET_RECIPE_BY_ID" TO ITS OWN ACTION*********
+      ****SEPERATE "DELETE AND SAVE" user recipes******** 
+      ****CREATE STYLED COMPONENT FOR "recipesDisplayBox" **********
+*/
+
 import React, { Fragment } from "react";
 import { Query, graphql, compose } from "react-apollo";
 import gql from "graphql-tag";

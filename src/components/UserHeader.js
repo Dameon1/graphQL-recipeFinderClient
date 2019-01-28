@@ -3,8 +3,7 @@ import { Link } from "@reach/router";
 import { NavButton } from "./styles";
 import SignOut from "./SignOut";
 
-export default class GuestHeader extends React.Component {
-  //TODO SEPARATE HEADERS INTO SEPARATE FILES
+export class GuestHeader extends React.Component {
   render() {
     return (
       <nav>
@@ -21,3 +20,5 @@ export default class GuestHeader extends React.Component {
     );
   }
 }
+
+export default GuestHeader;

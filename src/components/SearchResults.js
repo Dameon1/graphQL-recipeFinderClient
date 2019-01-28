@@ -1,12 +1,14 @@
+//TODO: ****REMOVE "GET_MULTIPLE_API_RECIPES" TO ITS OWN ACTION*********
+
 import React, { Fragment } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Spinner from "react-spinkit";
 import SmallRecipeDisplay from "../components/SmallRecipeDisplay";
 
-import {RecipeDisplayContainer} from './styles';
+import { RecipeDisplayContainer } from "./styles";
 
-import "../components/styles/multipleRecipesDisplay.css";
+//import "../components/styles/multipleRecipesDisplay.css";
 
 export const GET_MULTIPLE_API_RECIPES = gql`
   query getApiRecipes($queryString: String!) {
@@ -22,7 +24,7 @@ export const GET_MULTIPLE_API_RECIPES = gql`
   }
 `;
 
-export default class SearchResults extends React.Component {
+export class SearchResults extends React.Component {
   render() {
     return (
       <Query
@@ -49,3 +51,5 @@ export default class SearchResults extends React.Component {
     );
   }
 }
+
+export default SearchResults;

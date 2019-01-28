@@ -1,3 +1,5 @@
+//TODO: ****PUT FORMS INTO SEPARATE FILES*******
+
 import React from "react";
 import { navigate } from "@reach/router";
 
@@ -13,7 +15,7 @@ import {
 
 import Checkbox from "./Checkbox";
 
-export default class RecipeSearchForm extends React.Component {
+export class RecipeSearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -132,3 +134,5 @@ export default class RecipeSearchForm extends React.Component {
     );
   }
 }
+
+export default RecipeSearchForm;

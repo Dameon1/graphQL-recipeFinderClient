@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import { NavButton } from "./styles";
 
-export default class GuestHeader extends React.Component {
+export class GuestHeader extends React.Component {
   render() {
     return (
       <nav>
@@ -22,3 +22,5 @@ export default class GuestHeader extends React.Component {
     );
   }
 }
+
+export default GuestHeader;
