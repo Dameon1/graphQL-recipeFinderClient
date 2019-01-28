@@ -1,7 +1,15 @@
 import React from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import Form from "./styles/form";
+
+
+//TODO********* CREATE INDEX FOR STYLED COMPONENTS*********
+import {Form} from "./styles";
+import {UserSignIn} from "./styles";
+import {SignInButton} from "./styles";
+import {SignInInput} from "./styles";
+import {Label} from "./styles";
+
 import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
 import { navigate } from "@reach/router";
@@ -39,10 +47,9 @@ export default class CreateAccount extends React.Component {
             routeToHome(data);
           }
           return (
-            <div className="loginPage">
+            <UserSignIn>
               <Form
                 method="post"
-                className="login-form"
                 onSubmit={async e => {
                   e.preventDefault();
                   await signup();
@@ -50,35 +57,32 @@ export default class CreateAccount extends React.Component {
                 }}
               >
                 <Error error={error} />
-                <label htmlFor="username" className="signInLabel">
-                  Username
-                </label>
-                <input
+                <Label htmlFor="username">Username</Label>
+                <SignInInput
                   name="username"
                   placeholder="username"
                   value={this.state.username}
                   onChange={this.saveToState}
                   type="text"
                 />
-                <label htmlFor="password" className="signInLabel">
+                <Label htmlFor="password">
                   Password
-                </label>
-                <input
+                </Label>
+                <SignInInput
                   type="password"
                   name="password"
                   placeholder="password"
                   value={this.state.password}
                   onChange={this.saveToState}
                 />
-                <button
+                <SignInButton
                   type="submit"
                   disabled={this.props.pristine || this.props.submitting}
-                  className="signInButton"
                 >
                   Register
-                </button>
+                </SignInButton>
               </Form>
-            </div>
+            </UserSignIn>
           );
         }}
       </Mutation>

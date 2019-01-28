@@ -1,52 +1,18 @@
 import React from "react";
-import { Link } from "@reach/router";
 import User from "./User";
+import GuestHeader from "./GuestHeader";
+import UserHeader from "./GuestHeader";
 import "./styles/header.css";
-import SignOut from "./SignOut";
 
 export default class Header extends React.Component {
-  //TODO SEPARATE HEADERS INTO SEPARATE FILES
   render() {
     return (
       <User>
         {data => {
           if (!data.data.me) {
-            return (
-              <div className="header">
-                <h1 className="headerText">what2eat</h1>
-                <div className="navLinks">
-                  <Link to="/signIn">
-                    <button className="navLinkButtons">Login</button>
-                  </Link>
-                  <Link to="/signUp">
-                    <button className="navLinkButtons">Sign up</button>
-                  </Link>
-                  <Link to="/dashboard">
-                    <button className="navLinkButtons">Dashboard</button>
-                  </Link>
-                  <Link to="/">
-                    <button className="navLinkButtons">Home</button>
-                  </Link>
-                </div>
-              </div>
-            );
+            return <GuestHeader />;
           } else {
-            return (
-              <div className="header">
-                <h1 className="headerText">what2eat</h1>
-                <div className="navLinks">
-                  <Link to="/dashboard">
-                    <button className="navLinkButtons">Dashboard</button>
-                  </Link>
-                  <Link to="/myRecipes">
-                    <button className="navLinkButtons">My recipes</button>
-                  </Link>
-                  <Link to="/">
-                    <SignOut />
-                  </Link>
-                </div>
-              </div>
-            );
+            return <UserHeader />;
           }
         }}
       </User>

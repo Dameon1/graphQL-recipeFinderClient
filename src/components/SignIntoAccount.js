@@ -3,11 +3,18 @@ import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import { navigate } from "@reach/router";
 
-import Form from "./styles/form";
+//TODO********* CREATE INDEX FOR STYLED COMPONENTS*********
+import {Form} from "./styles";
+import {UserSignIn} from "./styles";
+import {SignInButton} from "./styles";
+import {SignInInput} from "./styles";
+import {Label} from "./styles";
+
 import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
 import { CURRENT_USER_QUERY } from "./User";
 
+//TODO************ CREATE INDEX FOR ALL QUERY?MUTATIONS *********
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($username: String!, $password: String!) {
     signInUser(username: $username, password: $password) {
@@ -40,10 +47,9 @@ export class SignIntoAccount extends React.Component {
             routeToHome(data);
           }
           return (
-            <div className="loginPage">
+            <UserSignIn>
               <Form
                 method="post"
-                className="login-form"
                 onSubmit={async e => {
                   e.preventDefault();
                   await signInUser();
@@ -51,35 +57,30 @@ export class SignIntoAccount extends React.Component {
                 }}
               >
                 <Error error={error} />
-                <label htmlFor="username" className="signInLabel">
-                  Username
-                </label>
-                <input
+                <Label htmlFor="username">Username</Label>
+                <SignInInput
                   name="username"
                   placeholder="username"
                   value={this.state.username}
                   onChange={this.saveToState}
                   type="text"
                 />
-                <label htmlFor="password" className="signInLabel">
-                  Password
-                </label>
-                <input
+                <Label htmlFor="password">Password</Label>
+                <SignInInput
                   type="password"
                   name="password"
                   placeholder="password"
                   value={this.state.password}
                   onChange={this.saveToState}
                 />
-                <button
+                <SignInButton
                   type="submit"
                   disabled={this.props.pristine || this.props.submitting}
-                  className="signInButton"
                 >
                   Sign In
-                </button>
+                </SignInButton>
               </Form>
-            </div>
+            </UserSignIn>
           );
         }}
       </Mutation>
