@@ -1,6 +1,5 @@
 import React from "react";
-import {IngredientBox} from './styles';
-import "./styles/checkbox.css";
+import { IngredientBox } from "./styles";
 
 export default class Checkbox extends React.Component {
   state = {

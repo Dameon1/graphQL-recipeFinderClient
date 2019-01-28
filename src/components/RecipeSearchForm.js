@@ -8,7 +8,7 @@ import { AddIngredientButton } from "./styles";
 import { AddIngredientForm } from "./styles";
 import { AddIngredientLabel } from "./styles";
 import { AddIngredientInput } from "./styles";
-import "./styles/recipeSearchForm.css";
+//import "./styles/recipeSearchForm.css";
 import Checkbox from "./Checkbox";
 
 export default class RecipeSearchForm extends React.Component {
