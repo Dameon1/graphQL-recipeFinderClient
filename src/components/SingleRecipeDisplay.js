@@ -1,19 +1,25 @@
 /* 
-TODO: 
-      ****SEPERATE "DELETE AND SAVE" user recipes******** 
-      ****CREATE STYLED COMPONENT FOR "recipesDisplayBox" **********
+TODO: ****SEPERATE "DELETE AND SAVE" user recipes******** 
+      ****CREATE STYLED COMPONENT FOR "recipesDisplayBox" , "recipeInstructionsText", "recipeOverview" **********
+      ****Better Display using styled components **********
+      ***Component for buttons****
 */
 
 import React, { Fragment } from "react";
 import { Query, graphql, compose } from "react-apollo";
 import Spinner from "react-spinkit";
 import getState from "../actions/getCurrentState";
+import {
+  SingleRecipeContainer,
+  SingleRecipeImage,
+  SingleRecipeTitleText,
+  SingleRecipeInstructionText
+} from "./styles";
 import "./styles/singleRecipe.css";
 import UserSavedRecipes from "../actions/getUserSavedRecipes";
 import SaveUserRecipe from "../actions/saveUserRecipe";
 import DeleteUserRecipe from "../actions/deleteUserRecipe";
-import GET_RECIPE_BY_ID from '../actions/getRecipeByIdQuery';
-
+import GET_RECIPE_BY_ID from "../actions/getRecipeByIdQuery";
 
 //********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
@@ -47,69 +53,61 @@ export class SingleRecipeDisplay extends React.Component {
             );
           }
           return (
-            <div className="recipesDisplayBox">
-              <Fragment>
-                <div className="recipeOverview">
-                  <h2 className="singleRecipeDisplayTitleText">{item.title}</h2>
-                  <img
-                    className="singleRecipeImage"
-                    src={item.image}
-                    alt={item.title}
-                  />
-                  <div className="recipeInstructions">{instructions}</div>
-                  {!this.props.me ? null : (
-                    <UserSavedRecipes>
-                      {({ data, loading, error, refetch }) => {
-                        if (data.recipesForUser !== undefined) {
-                          if (
-                            data.recipesForUser
-                              .map(recipe => recipe.recipeId)
-                              .includes(item.id)
-                          ) {
-                            return (
-                              <DeleteUserRecipe
-                                variables={{ recipeId: item.id }}
-                              >
-                                {deleteRecipe => {
-                                  return (
-                                    <button
-                                      onClick={async () => {
-                                        await deleteRecipe(item.id);
-                                        refetch();
-                                      }}
-                                    >
-                                      REMOVE
-                                    </button>
-                                  );
-                                }}
-                              </DeleteUserRecipe>
-                            );
-                          } else {
-                            return (
-                              <SaveUserRecipe variables={{ recipeId: item.id }}>
-                                {saveRecipe => {
-                                  return (
-                                    <button
-                                      onClick={async () => {
-                                        await saveRecipe(item.id);
-                                        refetch();
-                                      }}
-                                    >
-                                      ADD
-                                    </button>
-                                  );
-                                }}
-                              </SaveUserRecipe>
-                            );
-                          }
-                        }
-                        return null;
-                      }}
-                    </UserSavedRecipes>
-                  )}
-                </div>
-              </Fragment>
-            </div>
+            <SingleRecipeContainer>
+              <SingleRecipeTitleText>{item.title}</SingleRecipeTitleText>
+              <SingleRecipeImage src={item.image} alt={item.title} />
+              <SingleRecipeInstructionText>
+                {instructions}
+              </SingleRecipeInstructionText>
+              {!this.props.me ? null : (
+                <UserSavedRecipes>
+                  {({ data, loading, error, refetch }) => {
+                    if (data.recipesForUser !== undefined) {
+                      if (
+                        data.recipesForUser
+                          .map(recipe => recipe.recipeId)
+                          .includes(item.id)
+                      ) {
+                        return (
+                          <DeleteUserRecipe variables={{ recipeId: item.id }}>
+                            {deleteRecipe => {
+                              return (
+                                <button
+                                  onClick={async () => {
+                                    await deleteRecipe(item.id);
+                                    refetch();
+                                  }}
+                                >
+                                  REMOVE
+                                </button>
+                              );
+                            }}
+                          </DeleteUserRecipe>
+                        );
+                      } else {
+                        return (
+                          <SaveUserRecipe variables={{ recipeId: item.id }}>
+                            {saveRecipe => {
+                              return (
+                                <button
+                                  onClick={async () => {
+                                    await saveRecipe(item.id);
+                                    refetch();
+                                  }}
+                                >
+                                  ADD
+                                </button>
+                              );
+                            }}
+                          </SaveUserRecipe>
+                        );
+                      }
+                    }
+                    return null;
+                  }}
+                </UserSavedRecipes>
+              )}
+            </SingleRecipeContainer>
           );
         }}
       </Query>

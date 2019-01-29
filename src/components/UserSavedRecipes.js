@@ -1,5 +1,3 @@
-//TODO: ****REMOVE "USER_SAVED_RECIPES" TO ITS OWN ACTION*********
-
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";

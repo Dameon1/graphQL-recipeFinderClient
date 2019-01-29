@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MultiRecipeContainers = styled.div`
+const RecipeContainer = styled.div`
   text-align: center;
   max-width: 90%;
   display: flex;
@@ -10,4 +10,4 @@ const MultiRecipeContainers = styled.div`
   font-size: 22px;
 `;
 
-export default MultiRecipeContainers;
+export default RecipeContainer;

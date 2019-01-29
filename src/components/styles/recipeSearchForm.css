@@ -1,10 +1,10 @@
 
-.recipesDisplayBox {
+/* .recipesDisplayBox {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
-.recipeSearchForm {
+/* .recipeSearchForm {
   margin: 10px auto;
   width: 75%;
   border: solid #454545 2px;
@@ -63,4 +63,4 @@
 .recipeSearchButton:hover {
   background-color:#454545;
   color:#8FCFDE;
-}
+} */
