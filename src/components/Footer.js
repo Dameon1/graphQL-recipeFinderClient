@@ -1,18 +1,12 @@
-//TODO ** CREATE STYLED COMPONENTS**
-
 import React from "react";
-import {FooterContainer,FooterText,FooterLink} from './styles';
-import "./styles/footer.css";
+import { FooterContainer, FooterText, FooterLink } from "./styles";
 
 export default function Footer() {
   return (
     <FooterContainer>
       <FooterText>
         Powered by{" "}
-        <FooterLink
-          href="https://spoonacular.com/"
-          target="blank"
-        >
+        <FooterLink href="https://spoonacular.com/" target="blank">
           @Spoonacular
         </FooterLink>
       </FooterText>

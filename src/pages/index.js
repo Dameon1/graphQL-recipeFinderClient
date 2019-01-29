@@ -4,16 +4,16 @@ import { Router } from "@reach/router";
 import PageContainer from "../components/PageContainer";
 import Header from "../components/Header";
 import LandingPage from "../components/LandingPage";
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
 
-import "../components/styles/landingPage.css";
 import Dashboard from "./dashboard";
 import Search from "./search";
 import SingleRecipe from "./singleRecipe";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 import UserRecipes from "./userRecipes";
-export default function Pages() {
+
+export function Pages() {
   return (
     <Fragment>
       <PageContainer>
@@ -32,3 +32,4 @@ export default function Pages() {
     </Fragment>
   );
 }
+export default Pages;

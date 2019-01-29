@@ -1,0 +1,38 @@
+/* TODO: THIS IS A STYLE REFENCE FOR THESE COMPONENTS NOT YET CREATED
+.addIngredientInputField {
+  width:60%;
+  height : 25px;
+  display:inline-block;
+  margin:5px;
+  background-color:rgb(241, 239, 239);
+}
+*/
+/* 
+.recipeLink {
+  color:#454545;
+  font-size: 120%;
+  font-weight: 500;
+  display:block;
+  margin:5px auto;
+  text-align: center;
+}
+.singleRecipeBackButton {
+  margin:10px auto;
+  width:80%;
+  height:35px;
+  display:block;
+  border-radius:5px;
+  cursor: pointer;
+  background-color:#8FCFDE;
+  color:#454545;
+}
+.singleRecipeBackButton:hover {
+  color:white;
+}
+.recipeLink:hover {
+  color:white;
+} */
+
+/* .form-input {
+  background-color:#f7f7f7;
+} */

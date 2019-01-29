@@ -1,15 +1,13 @@
-
 import React from "react";
 import { Mutation } from "react-apollo";
 import { navigate } from "@reach/router";
 
 import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
-
-//import "./styles/userLogin.css";
 import Error from "./ErrorMessage";
-import CURRENT_USER from '../actions/currentUserQuery';
-import SIGNIN_MUTATION from '../actions/signInMutation';
+
 //TODO************ CREATE INDEX FOR ALL QUERY?MUTATIONS *********
+import CURRENT_USER from "../actions/currentUserQuery";
+import SIGNIN_MUTATION from "../actions/signInMutation";
 
 function routeToHome() {
   navigate("/dashboard");

@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Link } from "@reach/router";
-import "./styles/multipleRecipesDisplay.css";
 import { MultiRecipeButton, MultiRecipeImage, SmallRecipeContainer,SmallRecipeTitleText } from "./styles";
 
 export class SmallRecipeDisplay extends React.Component {
