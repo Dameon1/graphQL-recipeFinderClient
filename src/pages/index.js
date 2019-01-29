@@ -4,6 +4,7 @@ import { Router } from "@reach/router";
 import PageContainer from "../components/PageContainer";
 import Header from "../components/Header";
 import LandingPage from "../components/LandingPage";
+import Footer from '../components/Footer';
 
 import "../components/styles/landingPage.css";
 import Dashboard from "./dashboard";
@@ -12,7 +13,6 @@ import SingleRecipe from "./singleRecipe";
 import SignIn from "./signIn";
 import SignUp from "./signUp";
 import UserRecipes from "./userRecipes";
-
 export default function Pages() {
   return (
     <Fragment>
@@ -27,6 +27,7 @@ export default function Pages() {
           <SignUp path="/signUp" />
           <UserRecipes path="/myRecipes" />
         </Router>
+        <Footer />
       </PageContainer>
     </Fragment>
   );

@@ -1,22 +1,24 @@
-//TODO    ****CREATE STYLED COMPONENT FOR "recipeImageBox"
-
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import { MultiRecipeImage, MultiRecipeButton } from "./styles";
+import {
+  MultiRecipeImage,
+  MultiRecipeButton,
+  SmallRecipeContainer,
+  SmallRecipeTitleText
+} from "./styles";
 
 export class UserDisplayedRecipes extends Component {
   render() {
-    const item = this.props.props;
+    const { id, title, image } = this.props.item;
     return (
-      <div className="recipeImageBox" key={item.id} value={item.id}>
-        {console.log(item.id)}
-        {item.title}
-        <MultiRecipeImage src={item.image} alt={`Of ${item.title}`} />
+      <SmallRecipeContainer key={id} value={id}>
+        <SmallRecipeTitleText>{title}</SmallRecipeTitleText>
+        <MultiRecipeImage src={image} alt={`Of ${title}`} />
 
-        <Link to={`/singleRecipe/${this.props.props.id}`}>
+        <Link to={`/singleRecipe/${id}`}>
           <MultiRecipeButton>Get Recipe</MultiRecipeButton>
         </Link>
-      </div>
+      </SmallRecipeContainer>
     );
   }
 }

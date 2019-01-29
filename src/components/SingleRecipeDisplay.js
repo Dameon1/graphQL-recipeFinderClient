@@ -1,11 +1,10 @@
 /* 
-TODO: ****SEPERATE "DELETE AND SAVE" user recipes******** 
-      ****CREATE STYLED COMPONENT FOR "recipesDisplayBox" , "recipeInstructionsText", "recipeOverview" **********
+TODO: ****MAKE LINK TO FULL RECIPE******
+      ****SEPERATE "DELETE AND SAVE" user recipes******** 
       ****Better Display using styled components **********
-      ***Component for buttons****
 */
 
-import React, { Fragment } from "react";
+import React from "react";
 import { Query, graphql, compose } from "react-apollo";
 import Spinner from "react-spinkit";
 import getState from "../actions/getCurrentState";
@@ -13,9 +12,10 @@ import {
   SingleRecipeContainer,
   SingleRecipeImage,
   SingleRecipeTitleText,
-  SingleRecipeInstructionText
+  SingleRecipeInstructionText,
+  RecipeInstructionText,
+  SingleRecipeActionButton
 } from "./styles";
-import "./styles/singleRecipe.css";
 import UserSavedRecipes from "../actions/getUserSavedRecipes";
 import SaveUserRecipe from "../actions/saveUserRecipe";
 import DeleteUserRecipe from "../actions/deleteUserRecipe";
@@ -45,9 +45,9 @@ export class SingleRecipeDisplay extends React.Component {
             instructions = item.analyzedInstructions[0].steps.map(
               (item, index) => {
                 return (
-                  <div key={index} className="recipeInstructionsText">
+                  <RecipeInstructionText key={index}>
                     {" " + (index + 1) + ". " + item.step + "\n"}
-                  </div>
+                  </RecipeInstructionText>
                 );
               }
             );
@@ -72,14 +72,14 @@ export class SingleRecipeDisplay extends React.Component {
                           <DeleteUserRecipe variables={{ recipeId: item.id }}>
                             {deleteRecipe => {
                               return (
-                                <button
+                                <SingleRecipeActionButton
                                   onClick={async () => {
                                     await deleteRecipe(item.id);
                                     refetch();
                                   }}
                                 >
                                   REMOVE
-                                </button>
+                                </SingleRecipeActionButton>
                               );
                             }}
                           </DeleteUserRecipe>
@@ -89,14 +89,14 @@ export class SingleRecipeDisplay extends React.Component {
                           <SaveUserRecipe variables={{ recipeId: item.id }}>
                             {saveRecipe => {
                               return (
-                                <button
+                                <SingleRecipeActionButton
                                   onClick={async () => {
                                     await saveRecipe(item.id);
                                     refetch();
                                   }}
                                 >
                                   ADD
-                                </button>
+                                </SingleRecipeActionButton>
                               );
                             }}
                           </SaveUserRecipe>

@@ -1,3 +1,5 @@
+//TODO: BETTER ERROR HANDLING MESSAGES ***NO SAVED RECIPES
+
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
@@ -17,11 +19,7 @@ export class UserSavedRecipes extends Component {
             return <p>TODO: BETTER NO SAVED RECIPES PAGE</p>;
           }
           const results = data.fetchRecipesFromSpoonacularInBulk.map(
-            (recipe, i) => (
-              <UserDisplayedRecipes props={recipe} key={i}>
-                {recipe.title}
-              </UserDisplayedRecipes>
-            )
+            (recipe, i) => <UserDisplayedRecipes item={recipe} key={i} />
           );
           return <RecipeDisplayContainer>{results}</RecipeDisplayContainer>;
         }}

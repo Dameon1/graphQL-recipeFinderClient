@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
 
@@ -19,15 +19,12 @@ export class SearchResults extends React.Component {
         {({ data, loading, error }) => {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
-          return (
-            <RecipeDisplayContainer>
-              <Fragment>
-                {data.fetchRecipesFromSpoonacular.map((item, index) => {
-                  return <SmallRecipeDisplay props={{ ...item }} key={index} />;
-                })}
-              </Fragment>
-            </RecipeDisplayContainer>
+          const recipes = data.fetchRecipesFromSpoonacular.map(
+            (item, index) => {
+              return <SmallRecipeDisplay props={{ ...item }} key={index} />;
+            }
           );
+          return <RecipeDisplayContainer>{recipes}</RecipeDisplayContainer>;
         }}
       </Query>
     );
