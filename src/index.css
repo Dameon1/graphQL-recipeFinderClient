@@ -56,7 +56,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (min-width: 460px) {  
+/* @media only screen and (min-width: 460px) {  
   .recipeImageBox {
    width:45%
   }
@@ -78,4 +78,4 @@ body {
   .recipeImageBox {
     width: 19%;
   }
-} 
+}  */

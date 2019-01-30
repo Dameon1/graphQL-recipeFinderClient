@@ -37,17 +37,17 @@ export class SingleRecipeDisplay extends React.Component {
         {({ data, loading, error }) => {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
-          let item = data.fetchRecipesFromSpoonacularById;
+          let {title,image,id,analyzedInstructions} = data.fetchRecipesFromSpoonacularById;
           let instructions = "No instructions available at this time";
-          if (!item) {
+          if (!title) {
             return;
           }
-          if (item.analyzedInstructions.length !== 0) {
-            instructions = item.analyzedInstructions[0].steps.map(
-              (item, index) => {
+          if (analyzedInstructions.length !== 0) {
+            instructions = analyzedInstructions[0].steps.map(
+              ({step}, index) => {
                 return (
                   <RecipeInstructionText key={index}>
-                    {" " + (index + 1) + ". " + item.step + "\n"}
+                    {" " + (index + 1) + ". " + step + "\n"}
                   </RecipeInstructionText>
                 );
               }
@@ -55,8 +55,8 @@ export class SingleRecipeDisplay extends React.Component {
           }
           return (
             <SingleRecipeContainer>
-              <SingleRecipeTitleText>{item.title}</SingleRecipeTitleText>
-              <SingleRecipeImage src={item.image} alt={item.title} />
+              <SingleRecipeTitleText>{title}</SingleRecipeTitleText>
+              <SingleRecipeImage src={image} alt={title} />
               <SingleRecipeInstructionText>
                 {instructions}
               </SingleRecipeInstructionText>
@@ -68,15 +68,15 @@ export class SingleRecipeDisplay extends React.Component {
                       if (
                         data.recipesForUser
                           .map(recipe => recipe.recipeId)
-                          .includes(item.id)
+                          .includes(id)
                       ) {
                         return (
-                          <DeleteUserRecipe variables={{ recipeId: item.id }}>
+                          <DeleteUserRecipe variables={{ recipeId: id }}>
                             {deleteRecipe => {
                               return (
                                 <SingleRecipeActionButton
                                   onClick={async () => {
-                                    await deleteRecipe(item.id);
+                                    await deleteRecipe(id);
                                     refetch();
                                   }}
                                 >
@@ -88,12 +88,12 @@ export class SingleRecipeDisplay extends React.Component {
                         );
                       } else {
                         return (
-                          <SaveUserRecipe variables={{ recipeId: item.id }}>
+                          <SaveUserRecipe variables={{ recipeId: id }}>
                             {saveRecipe => {
                               return (
                                 <SingleRecipeActionButton
                                   onClick={async () => {
-                                    await saveRecipe(item.id);
+                                    await saveRecipe(id);
                                     refetch();
                                   }}
                                 >
