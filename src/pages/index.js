@@ -19,7 +19,7 @@ export function Pages() {
       <PageContainer>
         <Header />
         <Router primary={false}>
-          <LandingPage path="/" />
+          <LandingPage path="/graphQL-recipeFinderClient" />
           <Dashboard path="/dashboard" />
           <Search path="/search/*" />
           <SingleRecipe path="/singleRecipe/*" />

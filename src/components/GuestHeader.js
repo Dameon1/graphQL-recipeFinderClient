@@ -15,7 +15,7 @@ export class GuestHeader extends React.Component {
         <Link to="/dashboard">
           <NavButton>Dashboard</NavButton>
         </Link>
-        <Link to="/">
+        <Link to="/graphQL-recipeFinderClient">
           <NavButton>Home</NavButton>
         </Link>
       </nav>
