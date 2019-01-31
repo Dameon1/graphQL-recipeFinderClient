@@ -1,11 +1,13 @@
-//TODO: BETTER ERROR HANDLING MESSAGES ***NO SAVED RECIPES
-
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
 import UserDisplayedRecipes from "./UserDisplayedRecipes";
 //import Error from '../components/ErrorMessage';
-import { RecipeDisplayContainer } from "./styles";
+import {
+  RecipeDisplayContainer,
+  UserNoSavedRecipes,
+  NoSavedRecipeText
+} from "./styles";
 import USER_SAVED_RECIPES from "../actions/userSavedRecipesQuery";
 
 export class UserSavedRecipes extends Component {
@@ -16,7 +18,13 @@ export class UserSavedRecipes extends Component {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
           if (data && data.fetchRecipesFromSpoonacularInBulk[0].id === null) {
-            return <p>TODO: BETTER NO SAVED RECIPES PAGE</p>;
+            return (
+              <UserNoSavedRecipes>
+                <NoSavedRecipeText>
+                  You currently have no saved recipes.
+                </NoSavedRecipeText>
+              </UserNoSavedRecipes>
+            );
           }
           const results = data.fetchRecipesFromSpoonacularInBulk.map(
             (recipe, i) => <UserDisplayedRecipes item={recipe} key={i} />

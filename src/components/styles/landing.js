@@ -8,6 +8,7 @@ const Landing = styled.div`
   border-radius: 5px;
   max-width: 600px;
   width: 80%;
+  border: solid 1px  #454545;
 `;
 
 export default Landing;
