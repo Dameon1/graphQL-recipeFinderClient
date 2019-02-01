@@ -29,7 +29,7 @@ export class SignIntoAccount extends React.Component {
         refetchQueries={[{ query: CURRENT_USER }]}
       >
         {(signInUser, { data, error, loading }) => {
-          if (data) {
+          if (data && data.signInUser && data.signInUser.username) {
             routeToHome(data);
           }
           return (
@@ -44,6 +44,9 @@ export class SignIntoAccount extends React.Component {
               >
                 <Error error={error} />
                 <Label htmlFor="username">Username</Label>
+                {data && data.signInUser.message && (
+                  <Error error={data.signInUser} />
+                )}
                 <SignInInput
                   name="username"
                   placeholder="username"

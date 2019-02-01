@@ -2,7 +2,6 @@
 TODO: ****MAKE LINK TO FULL RECIPE******
       ****SEPERATE "DELETE AND SAVE" user recipes******** 
       ****Better Display using styled components **********
-      ****Fix refresh error****
 */
 
 import React from "react";

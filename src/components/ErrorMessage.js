@@ -21,7 +21,6 @@ const ErrorMessage = ({ error }) => {
   return (
     <ErrorStyles>
       <p data-test="graphql-error">
-        <strong>Shoot!</strong>
         {error.message}
       </p>
     </ErrorStyles>
