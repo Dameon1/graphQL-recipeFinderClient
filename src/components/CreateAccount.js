@@ -27,8 +27,8 @@ export class CreateAccount extends React.Component {
         refetchQueries={[{ query: CURRENT_USER }]}
       >
         {(signup, { data, error, loading }) => {
-          if (data) {
-            routeToHome(data);
+          if (data && data.createUser && data.createUser.username) {
+            routeToHome();
           }
           return (
             <UserSignIn>
@@ -41,7 +41,11 @@ export class CreateAccount extends React.Component {
                 }}
               >
                 <Error error={error} />
+
                 <Label htmlFor="username">Username</Label>
+                {data && data.createUser.message && (
+                  <Error error={data.createUser} />
+                )}
                 <SignInInput
                   name="username"
                   placeholder="username"
