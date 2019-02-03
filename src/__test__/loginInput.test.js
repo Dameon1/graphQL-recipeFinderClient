@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Input from "../components/display/loginInput";
+import Input from "../components/loginInput";
 
 describe("<Input />", () => {
   it("renders without crashing", () => {

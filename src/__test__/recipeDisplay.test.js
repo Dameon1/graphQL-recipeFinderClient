@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { RecipeDisplay } from "../components/display/recipeDisplay";
+import { RecipeDisplay } from "../components/recipeDisplay";
 
 describe("<RecipeDisplay />", () => {
   it("renders without crashing", () => {

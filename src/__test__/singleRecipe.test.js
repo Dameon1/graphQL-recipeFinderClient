@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { SingleRecipe } from "../components/containers/singleRecipe";
+import { SingleRecipe } from "../components/singleRecipe";
 
 describe("<SingleRecipe />", () => {
   it("Renders without crashing", () => {

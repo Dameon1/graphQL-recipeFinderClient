@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { Content } from "../components/containers/content";
+import { Content } from "../components/content";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { testObj, store, configs, dispatch, props } from "./testUtils";
