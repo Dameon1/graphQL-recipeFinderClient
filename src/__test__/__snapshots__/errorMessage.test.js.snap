@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorMessage/> displays the error message given 1`] = `
+<ErrorMessage
+  error={
+    Object {
+      "error": "simple error message",
+    }
+  }
+/>
+`;

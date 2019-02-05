@@ -12,9 +12,9 @@ export const testObj = {
 };
 
 export const store = {
-  state: {
-    recipeReducer: jest.fn(),
-    ...initialState
+  currentState: {
+    __typename: "currentState",
+    //currentSearchTerm: "",
   },
   getState: jest.fn(),
   subscribe: jest.fn(),

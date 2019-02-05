@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> matches the snapshot 1`] = `
+<styled.div>
+  <styled.p>
+    Powered by
+     
+    <styled.a
+      href="https://spoonacular.com/"
+      target="blank"
+    >
+      @Spoonacular
+    </styled.a>
+  </styled.p>
+</styled.div>
+`;

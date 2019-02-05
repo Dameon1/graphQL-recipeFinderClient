@@ -20,7 +20,7 @@ const ErrorMessage = ({ error }) => {
   }
   return (
     <ErrorStyles>
-      <p data-test="graphql-error">
+      <p data-test="graphql-error" className="errorMessage">
         {error.message}
       </p>
     </ErrorStyles>

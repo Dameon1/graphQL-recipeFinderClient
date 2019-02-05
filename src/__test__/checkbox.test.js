@@ -3,6 +3,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import Checkbox from "../components/Checkbox";
+import toJSON from "enzyme-to-json";
 
 describe("<Checkbox />", () => {
   it("renders without crashing", () => {
@@ -36,5 +37,13 @@ describe("<Checkbox />", () => {
     wrapper.find("input").simulate("click");
     expect(handleCheckboxChange).toHaveBeenCalledWith(label);
     expect(wrapper.state("isChecked")).toEqual(false);
+  });
+  it('matches the snapshot', () => {
+    const handleCheckboxChange = jest.fn();
+    const label = "Milk";
+    let wrapper = mount(
+      <Checkbox label={label} handleCheckboxChange={handleCheckboxChange} />
+    );
+    expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> matches the snapshot 1`] = `
+<Checkbox
+  handleCheckboxChange={[Function]}
+  label="Milk"
+>
+  <styled.label
+    onClick={[Function]}
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-dnqmqq",
+            "isStatic": true,
+            "lastClassName": "dvlEJL",
+            "rules": Array [
+              "
+          display: inline-block;
+          width: 50%;
+          padding: 2px;
+          font-size: 22px;
+        
+          :hover {
+            border: dotted #454545 1px;
+          }
+        ",
+            ],
+          },
+          "displayName": "styled.label",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-dnqmqq",
+          "target": "label",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      onClick={[Function]}
+    >
+      <label
+        className="sc-dnqmqq dvlEJL"
+        onClick={[Function]}
+      >
+        <label>
+          <input
+            checked={false}
+            onChange={[Function]}
+            type="checkbox"
+            value="Milk"
+          />
+          Milk
+        </label>
+      </label>
+    </StyledComponent>
+  </styled.label>
+</Checkbox>
+`;
