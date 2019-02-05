@@ -102,11 +102,7 @@ export class RecipeSearchForm extends React.Component {
     return (
       <div>
         <DashboardHeading>
-          Welcome{" "}
-          {this.props.currentState === undefined
-            ? null
-            : this.props.currentState.currentUser}{" "}
-          to what2eat
+          Welcome to what2eat
         </DashboardHeading>
 
         <AddIngredientForm onSubmit={e => this.addIngredents(e)}>

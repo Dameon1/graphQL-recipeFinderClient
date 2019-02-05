@@ -4,6 +4,7 @@ import { UserSavedRecipes } from "../components/userSavedRecipes";
 
 describe("<UserSavedRecipes />", () => {
   it("renders without crashing", () => {
-    shallow(<UserSavedRecipes />);
+    const wrapper = shallow(<UserSavedRecipes />);
+    console.log(wrapper.debug());
   });
 });

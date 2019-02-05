@@ -1,6 +1,6 @@
 import { initialState } from "../reducers/userReducer";
 
-export const testObj = {
+export const testRecipe = {
   id: 47891,
   image: "https://spoonacular.com/recipeImages/47891-312x231.jpg",
   imageType: "jpg",
@@ -17,20 +17,9 @@ export const store = {
     //currentSearchTerm: "",
   },
   getState: jest.fn(),
-  subscribe: jest.fn(),
-  dispatch: jest.fn()
+ 
 };
 
 export const configs = {
-  default: true,
-  label: "My Label",
-  element: "myElement",
-  apiRecipes: [12232, 1221]
-};
-
-export const dispatch = jest.fn();
-
-export const props = {
-  apiRecipes: configs.apiRecipes,
-  dispatch
+   apiRecipes: [12232, 1221]
 };

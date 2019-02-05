@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { RecipeDisplay } from "../components/recipeDisplay";
+import { SingleRecipeDisplay } from "../components/singleRecipeDisplay";
 
-describe("<RecipeDisplay />", () => {
+describe("<SingleRecipeDisplay />", () => {
   it("renders without crashing", () => {
     const dispatch = jest.fn();
     const testObject = {
@@ -11,6 +11,6 @@ describe("<RecipeDisplay />", () => {
       usedIngredientCount: 4,
       missedIngredientCount: 4
     };
-    shallow(<RecipeDisplay dispatch={dispatch} apiRecipes={[testObject]} />);
+    shallow(<SingleRecipeDisplay  apiRecipes={[testObject]} />);
   });
 });
