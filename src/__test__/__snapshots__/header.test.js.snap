@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Renders without crashing 1`] = `
+<styled.div>
+  <styled.h1>
+    what2eat
+  </styled.h1>
+  <User>
+    <Component />
+  </User>
+</styled.div>
+`;

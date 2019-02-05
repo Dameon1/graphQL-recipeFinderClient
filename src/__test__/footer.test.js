@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import toJSON from "enzyme-to-json";
 
 describe("<Footer />", () => {

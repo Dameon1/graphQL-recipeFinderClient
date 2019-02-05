@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GuestHeader /> matches the snapshot 1`] = `
+<nav>
+  <ForwardRef
+    to="/signIn"
+  >
+    <styled.button>
+      Login
+    </styled.button>
+  </ForwardRef>
+  <ForwardRef
+    to="/signUp"
+  >
+    <styled.button>
+      Sign up
+    </styled.button>
+  </ForwardRef>
+  <ForwardRef
+    to="/dashboard"
+  >
+    <styled.button>
+      Dashboard
+    </styled.button>
+  </ForwardRef>
+  <ForwardRef
+    to="/graphQL-recipeFinderClient"
+  >
+    <styled.button>
+      Home
+    </styled.button>
+  </ForwardRef>
+</nav>
+`;

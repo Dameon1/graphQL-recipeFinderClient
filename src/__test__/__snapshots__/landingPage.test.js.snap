@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingPage> renders without crashing 1`] = `
+<styled.div>
+  <styled.h2>
+    You Have Ingredients?
+  </styled.h2>
+  <styled.h2>
+     
+    (Find recipes for those ingredients!)
+     
+  </styled.h2>
+  <styled.p>
+    Sign up today to enjoy full features
+  </styled.p>
+  <ForwardRef
+    to="/signUp"
+  >
+    <styled.button>
+      SignUp
+    </styled.button>
+  </ForwardRef>
+  <styled.p>
+    or preview the experience
+  </styled.p>
+  <ForwardRef
+    to="/dashboard"
+  >
+    <styled.button>
+      Preview
+    </styled.button>
+  </ForwardRef>
+</styled.div>
+`;
