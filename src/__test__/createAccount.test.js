@@ -1,35 +1,76 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { CreateAccount } from "../components/CreateAccount";
 import toJSON from "enzyme-to-json";
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider } from "react-apollo/test-utils";
+import { ApolloConsumer } from "react-apollo";
+import { SIGNUP_MUTATION } from "../actions/signUpMutation";
+
+import { CreateAccount } from "../components/CreateAccount";
 import CURRENT_USER from "../actions/currentUserQuery";
 
-const someFunction = jest.fn();
+function type(wrapper, name, value) {
+  wrapper.find(`input[name="${name}"]`).simulate("change", {
+    target: { name, value }
+  });
+}
+
+const me = {
+  __typename: "User",
+  username: "username"
+};
+
 const mocks = [
+  //signup mock mutation
   {
-    // when someone makes a request with this query and variable combo
-    request: { query: CURRENT_USER, variables: { id: '123' } },
-    // return this fake data (mocked data)
+    request: {
+      query: SIGNUP_MUTATION,
+      variables: {
+        username: "username",
+        password: "password"
+      }
+    },
     result: {
       data: {
-        me: {
-          username: "someone"
-        },
-      },
-    },
+        createUser: {
+          __typename: "User",
+          username: "",
+          reason: "",
+          message: ""
+        }
+      }
+    }
   },
+  //current user query mock
+  {
+    request: { query: CURRENT_USER },
+    result: { data: { me } }
+  }
 ];
 
-describe.only("<CreateAccount />", () => {
-  it("renders without crashing", () => {    
-    let wrapper = shallow(<CreateAccount handleSubmit={someFunction} />);
-    expect(wrapper).toMatchSnapshot();
+describe("<CreateAccount/>", () => {
+  it("renders and matches snapshot", async () => {
+    const wrapper = shallow(
+      <MockedProvider>
+        <CreateAccount />
+      </MockedProvider>
+    );
+    //console.log(wrapper.debug());
+    expect(toJSON(wrapper)).toMatchSnapshot();
   });
-  it("matches snapshot", () => {
-    let wrapper = mount(
+
+  it("calls the mutation properly", async () => {
+    let apolloClient;
+    const wrapper = mount(
       <MockedProvider mocks={mocks}>
-        <CreateAccount handleSubmit={someFunction} />
-      </MockedProvider>)  
-  })
+        <ApolloConsumer>
+          {client => {
+            apolloClient = client;
+            return <CreateAccount />;
+          }}
+        </ApolloConsumer>
+      </MockedProvider>
+    );
+    const user = await apolloClient.query({ query: CURRENT_USER });
+    expect(user.data.me).toMatchObject(me);
+  });
 });

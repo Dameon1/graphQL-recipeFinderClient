@@ -9,7 +9,7 @@ describe("<Footer />", () => {
   });
   it('matches the snapshot', () => {
     const wrapper = shallow(<Footer />);
-    console.log(wrapper.debug());
+    //console.log(wrapper.debug());
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

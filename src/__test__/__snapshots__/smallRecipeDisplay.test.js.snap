@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SmallRecipeDisplay /> Renders without crashing 1`] = `
+<styled.div
+  key="1"
+  value={101}
+>
+  <styled.h2>
+    This is a test title
+  </styled.h2>
+  <styled.img
+    alt="Of This is a test title"
+    src="Test url image String"
+  />
+  <p>
+    Ingredients used: 
+    3
+  </p>
+  <p>
+    Missing ingredients: 
+    2
+  </p>
+  <ForwardRef
+    to="/singleRecipe/101"
+  >
+    <styled.button>
+      Get Recipe
+    </styled.button>
+  </ForwardRef>
+</styled.div>
+`;

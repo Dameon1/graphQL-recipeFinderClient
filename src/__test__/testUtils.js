@@ -1,4 +1,3 @@
-import { initialState } from "../reducers/userReducer";
 
 export const testRecipe = {
   id: 47891,
@@ -10,6 +9,16 @@ export const testRecipe = {
   title: "Apple Tart",
   usedIngredientCount: 3
 };
+
+export const testUser = () => ({
+  __typename: 'User',
+  id: '4234',
+  name: casual.name,
+  email: casual.email,
+  permissions: ['ADMIN'],
+  orders: [],
+  cart: [],
+});
 
 export const store = {
   currentState: {

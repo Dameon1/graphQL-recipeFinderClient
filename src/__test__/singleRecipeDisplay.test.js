@@ -13,6 +13,6 @@ describe("<SingleRecipeDisplay />", () => {
     };
     const dispatch = jest.fn();    
     const wrapper = shallow(<SingleRecipeDisplay/>);
-    console.log(wrapper.debug());
+    //console.log(wrapper.debug());
   });
 });

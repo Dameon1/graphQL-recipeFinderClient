@@ -12,6 +12,6 @@ describe("<UserDisplayedRecipes />", () => {
       }
     }
     const wrapper = shallow(<UserDisplayedRecipes {...props} />);
-    console.log(wrapper.debug());
+    //console.log(wrapper.debug());
   });
 });
