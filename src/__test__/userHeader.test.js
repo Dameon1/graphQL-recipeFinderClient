@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { UserHeader } from "../components/UserHeader";
+import UserHeader from "../components/UserHeader";
 
 //TODO: COULD ADD A FEW MORE SMOKE TESTS
 
