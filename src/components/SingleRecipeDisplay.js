@@ -16,7 +16,7 @@ import {
   RecipeInstructionText,
   SingleRecipeActionButton
 } from "./styles";
-import UserSavedRecipesDisplay from "./UserSavedRecipesDisplay";
+import UserSavedRecipes from "./UserSavedRecipes";
 import SaveUserRecipe from "./SaveUserRecipe";
 import DeleteUserRecipe from "./DeleteUserRecipe";
 import {GET_RECIPE_BY_ID_QUERY} from "../actions";
@@ -59,9 +59,8 @@ export class SingleRecipeDisplay extends React.Component {
               <SingleRecipeInstructionText>
                 {instructions}
               </SingleRecipeInstructionText>
-              {console.log(this.props)}
               {!this.props.me ? null : (
-                <UserSavedRecipesDisplay>
+                <UserSavedRecipes>
                   {({ data, loading, error, refetch }) => {
                     if (data.recipesForUser !== undefined) {
                       if (
@@ -106,7 +105,7 @@ export class SingleRecipeDisplay extends React.Component {
                     }
                     return null;
                   }}
-                </UserSavedRecipesDisplay>
+                </UserSavedRecipes>
               )}
             </SingleRecipeContainer>
           );
@@ -120,7 +119,7 @@ export default compose(
   graphql(getState, {
     props: ({ data: { currentState, me } }) => ({
       currentState,
-      me,
+      me
     })
   })
 )(SingleRecipeDisplay);

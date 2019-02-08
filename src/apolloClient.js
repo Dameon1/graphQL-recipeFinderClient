@@ -9,7 +9,10 @@ const defaultState = {
     __typename: "currentState",
     //currentSearchTerm: "",
   },
-  
+  me: {
+    username: "",
+    __typename: "User"
+  }
 };
 
 export const client = new ApolloClient({
