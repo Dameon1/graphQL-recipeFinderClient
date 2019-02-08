@@ -8,7 +8,6 @@ import toJSON from "enzyme-to-json";
 describe("<SignIntoAccount />", () => {
   it("renders without crashing", () => {
     const wrapper = shallow(<SignIntoAccount />);
-    //console.log(wrapper.debug());
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

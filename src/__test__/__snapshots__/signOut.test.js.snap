@@ -49,7 +49,7 @@ exports[`<SignOut /> renders without crashing 1`] = `
       ],
       "kind": "Document",
       "loc": Object {
-        "end": 64,
+        "end": 74,
         "start": 0,
       },
     }
@@ -64,7 +64,7 @@ exports[`<SignOut /> renders without crashing 1`] = `
               "kind": "OperationDefinition",
               "name": Object {
                 "kind": "Name",
-                "value": "CURRENT_USER",
+                "value": "CURRENT_USER_QUERY",
               },
               "operation": "query",
               "selectionSet": Object {
@@ -103,7 +103,7 @@ exports[`<SignOut /> renders without crashing 1`] = `
           ],
           "kind": "Document",
           "loc": Object {
-            "end": 57,
+            "end": 64,
             "start": 0,
           },
         },

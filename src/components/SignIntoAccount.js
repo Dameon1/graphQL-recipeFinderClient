@@ -6,8 +6,9 @@ import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 import Error from "./ErrorMessage";
 
 //TODO************ CREATE INDEX FOR ALL QUERY?MUTATIONS *********
-import CURRENT_USER from "../actions/currentUserQuery";
-import SIGNIN_MUTATION from "../actions/signInMutation";
+// import CURRENT_USER from "../actions/currentUserQuery";
+// import SIGNIN_MUTATION from "../actions/signInMutation";
+import {CURRENT_USER_QUERY,SIGNIN_MUTATION} from '../actions';
 
 function routeToHome() {
   navigate("/dashboard");
@@ -26,7 +27,7 @@ export class SignIntoAccount extends React.Component {
       <Mutation
         mutation={SIGNIN_MUTATION}
         variables={this.state}
-        refetchQueries={[{ query: CURRENT_USER }]}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signInUser, { data, error, loading }) => {
           if (data && data.signInUser && data.signInUser.username) {

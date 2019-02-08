@@ -1,39 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import { Query } from "react-apollo";
-import Spinner from "react-spinkit";
-import UserDisplayedRecipes from "./UserDisplayedRecipes";
-//import Error from '../components/ErrorMessage';
-import {
-  RecipeDisplayContainer,
-  UserNoSavedRecipes,
-  NoSavedRecipeText
-} from "./styles";
-import USER_SAVED_RECIPES from "../actions/userSavedRecipesQuery";
+import PropTypes from "prop-types";
+import {GET_USER_SAVED_RECIPES_QUERY} from "../actions";
 
-export class UserSavedRecipes extends Component {
-  render() {
-    return (
-      <Query query={USER_SAVED_RECIPES} fetchPolicy="network-only">
-        {({ data, loading, error }) => {
-          if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
-          if (error) return <p>ERROR: {error.message}</p>;
-          if (data && data.fetchRecipesFromSpoonacularInBulk[0].id === null) {
-            return (
-              <UserNoSavedRecipes>
-                <NoSavedRecipeText>
-                  You currently have no saved recipes.
-                </NoSavedRecipeText>
-              </UserNoSavedRecipes>
-            );
-          }
-          const results = data.fetchRecipesFromSpoonacularInBulk.map(
-            (recipe, i) => <UserDisplayedRecipes item={recipe} key={i} />
-          );
-          return <RecipeDisplayContainer>{results}</RecipeDisplayContainer>;
-        }}
-      </Query>
-    );
-  }
-}
+const UserSavedRecipes = props => {
+  return (
+    <Query {...props} query={GET_USER_SAVED_RECIPES_QUERY} fetchPolicy="network-only">
+      {payload => props.children(payload)}
+    </Query>
+  );
+};
+
+UserSavedRecipes.propTypes = {
+  children: PropTypes.func.isRequired
+};
 
 export default UserSavedRecipes;

@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 export default gql`
-  query fetchRecipesFromSpoonacularById($id: Int) {
+  query GET_RECIPE_BY_ID_QUERY($id: Int) {
     fetchRecipesFromSpoonacularById(id: $id) {
       image
       title

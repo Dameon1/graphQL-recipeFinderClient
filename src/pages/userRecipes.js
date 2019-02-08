@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import UserSavedRecipes from "../components/UserSavedRecipes";
+import UserSavedRecipesDisplay from "../components/UserSavedRecipesDisplay";
 
 export default class UserRecipes extends Component {
   render() {
-    return <UserSavedRecipes />;
+    return <UserSavedRecipesDisplay />;
   }
 }

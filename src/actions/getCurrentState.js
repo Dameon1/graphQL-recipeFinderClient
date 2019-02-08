@@ -2,8 +2,8 @@
 import gql from "graphql-tag";
 
 export default gql`
-  query {    
-    me @client{
+  query GET_CURRENT_STATE {
+    me @client {
       username
     }
   }

@@ -25,7 +25,6 @@ describe("<SmallRecipeDisplay />", () => {
     }}
     const dispatch = jest.fn();    
     const wrapper = shallow(<SmallRecipeDisplay {...props}/>);
-    //console.log(wrapper.debug());
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

@@ -16,10 +16,10 @@ import {
   RecipeInstructionText,
   SingleRecipeActionButton
 } from "./styles";
-import UserSavedRecipes from "../actions/getUserSavedRecipes";
-import SaveUserRecipe from "../actions/saveUserRecipe";
-import DeleteUserRecipe from "../actions/deleteUserRecipe";
-import GET_RECIPE_BY_ID from "../actions/getRecipeByIdQuery";
+import UserSavedRecipesDisplay from "./UserSavedRecipesDisplay";
+import SaveUserRecipe from "./SaveUserRecipe";
+import DeleteUserRecipe from "./DeleteUserRecipe";
+import {GET_RECIPE_BY_ID_QUERY} from "../actions";
 
 //********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
@@ -27,7 +27,7 @@ export class SingleRecipeDisplay extends React.Component {
     let location = window.location.pathname.split("/");
     return (
       <Query
-        query={GET_RECIPE_BY_ID}
+        query={GET_RECIPE_BY_ID_QUERY}
         fetchPolicy="cache and network"
         variables={{
           id: parseInt(location[2], 10)
@@ -61,7 +61,7 @@ export class SingleRecipeDisplay extends React.Component {
               </SingleRecipeInstructionText>
               {console.log(this.props)}
               {!this.props.me ? null : (
-                <UserSavedRecipes>
+                <UserSavedRecipesDisplay>
                   {({ data, loading, error, refetch }) => {
                     if (data.recipesForUser !== undefined) {
                       if (
@@ -106,7 +106,7 @@ export class SingleRecipeDisplay extends React.Component {
                     }
                     return null;
                   }}
-                </UserSavedRecipes>
+                </UserSavedRecipesDisplay>
               )}
             </SingleRecipeContainer>
           );
@@ -118,10 +118,9 @@ export class SingleRecipeDisplay extends React.Component {
 
 export default compose(
   graphql(getState, {
-    props: ({ data: { currentState, me, recipesForUser } }) => ({
+    props: ({ data: { currentState, me } }) => ({
       currentState,
       me,
-      // recipesForUser
     })
   })
 )(SingleRecipeDisplay);

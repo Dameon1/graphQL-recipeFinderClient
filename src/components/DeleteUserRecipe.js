@@ -1,17 +1,11 @@
 import React from "react";
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
 import PropTypes from "prop-types";
-
-const DELETE_RECIPE = gql`
-  mutation DELETE_RECIPE($recipeId: Int) {
-    deleteRecipe(recipeId: $recipeId)
-  }
-`;
+import { DELETE_USER_RECIPE_MUTATION } from '../actions';
 
 const DeleteUserRecipe = props => {
   return (
-    <Mutation {...props} mutation={DELETE_RECIPE} variables={props.variables}>
+    <Mutation {...props} mutation={DELETE_USER_RECIPE_MUTATION} variables={props.variables}>
       {payload => props.children(payload)}
     </Mutation>
   );
@@ -22,4 +16,3 @@ DeleteUserRecipe.propTypes = {
 };
 
 export default DeleteUserRecipe;
-export { DELETE_RECIPE };

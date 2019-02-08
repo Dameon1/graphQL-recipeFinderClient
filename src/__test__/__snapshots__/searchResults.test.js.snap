@@ -11,7 +11,7 @@ exports[`<SearchResults /> renders without crashing 1`] = `
           "kind": "OperationDefinition",
           "name": Object {
             "kind": "Name",
-            "value": "getApiRecipes",
+            "value": "GET_MULTIPLE_API_RECIPES_QUERY",
           },
           "operation": "query",
           "selectionSet": Object {
@@ -153,7 +153,7 @@ exports[`<SearchResults /> renders without crashing 1`] = `
       ],
       "kind": "Document",
       "loc": Object {
-        "end": 222,
+        "end": 261,
         "start": 0,
       },
     }

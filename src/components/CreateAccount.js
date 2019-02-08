@@ -3,8 +3,7 @@ import { Mutation } from "react-apollo";
 import { navigate } from "@reach/router";
 
 import Error from "./ErrorMessage";
-import CURRENT_USER from "../actions/currentUserQuery";
-import SIGNUP_MUTATION from "../actions/signUpMutation";
+import { CURRENT_USER_QUERY, SIGNUP_MUTATION } from "../actions";
 import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 
 function routeToHome() {
@@ -24,7 +23,7 @@ export class CreateAccount extends React.Component {
       <Mutation
         mutation={SIGNUP_MUTATION}
         variables={this.state}
-        refetchQueries={[{ query: CURRENT_USER }]}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
       >
         {(signup, { data, error, loading }) => {
           if (data && data.createUser && data.createUser.username) {

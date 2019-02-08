@@ -67,11 +67,6 @@ describe("<SignOut />", () => {
         </ApolloConsumer>
       </MockedProvider>
     );
-    //console.log(wrapper.find('button'));
-    // wrapper.find('button').simulate('click');
-    // wrapper.update();
-    // const user = await apolloClient.query({ query: CURRENT_USER });
-    // expect(user.data.me).toMatchObject(notSignedIn);
-    // console.log(wrapper.debug());
+   
   })
 });

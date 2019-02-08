@@ -1,10 +1,9 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { UserSavedRecipes } from "../components/userSavedRecipes";
+import { UserSavedRecipesDisplay } from "../components/UserSavedRecipesDisplay";
 
-describe("<UserSavedRecipes />", () => {
+describe("<UserSavedRecipesDisplay />", () => {
   it("renders without crashing", () => {
-    const wrapper = shallow(<UserSavedRecipes />);
-    //console.log(wrapper.debug());
+    const wrapper = shallow(<UserSavedRecipesDisplay />);
   });
 });

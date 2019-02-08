@@ -1,13 +1,11 @@
-//TODO: ****REMOVE "CURRENT_USER_QUERY" TO ITS OWN ACTION*********
-
 import React from "react";
 import { Query } from "react-apollo";
 import PropTypes from "prop-types";
-import CURRENT_USER from "../actions/currentUserQuery";
+import {CURRENT_USER_QUERY} from "../actions";
 
 const User = props => {
   return (
-    <Query {...props} query={CURRENT_USER} fetchPolicy="cache-first">
+    <Query {...props} query={CURRENT_USER_QUERY} fetchPolicy="cache-first">
       {payload => props.children(payload)}
     </Query>
   );
