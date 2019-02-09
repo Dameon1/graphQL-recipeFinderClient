@@ -43,3 +43,4 @@ export { default as FooterText } from "./footerText";
 export { default as FooterLink } from "./footerLink";
 export { default as UserNoSavedRecipes } from "./userNoSavedRecipes";
 export { default as NoSavedRecipeText } from "./noSavedRecipeText";
+export { default as RecipeLinkButton } from "./recipeLinkButton";

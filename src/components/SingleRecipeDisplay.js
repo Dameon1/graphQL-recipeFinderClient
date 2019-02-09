@@ -14,12 +14,13 @@ import {
   SingleRecipeTitleText,
   SingleRecipeInstructionText,
   RecipeInstructionText,
-  SingleRecipeActionButton
+  SingleRecipeActionButton,
+  RecipeLinkButton
 } from "./styles";
 import UserSavedRecipes from "./UserSavedRecipes";
 import SaveUserRecipe from "./SaveUserRecipe";
 import DeleteUserRecipe from "./DeleteUserRecipe";
-import {GET_RECIPE_BY_ID_QUERY} from "../actions";
+import { GET_RECIPE_BY_ID_QUERY } from "../actions";
 
 //********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
@@ -36,14 +37,20 @@ export class SingleRecipeDisplay extends React.Component {
         {({ data, loading, error }) => {
           if (loading) return <Spinner spinnername="circle" fadeIn="none" />;
           if (error) return <p>ERROR: {error.message}</p>;
-          let {title,image,id,analyzedInstructions} = data.fetchRecipesFromSpoonacularById;
+          let {
+            sourceUrl,
+            title,
+            image,
+            id,
+            analyzedInstructions
+          } = data.fetchRecipesFromSpoonacularById;
           let instructions = "No instructions available at this time";
           if (!title) {
             return;
           }
           if (analyzedInstructions.length !== 0) {
             instructions = analyzedInstructions[0].steps.map(
-              ({step}, index) => {
+              ({ step }, index) => {
                 return (
                   <RecipeInstructionText key={index}>
                     {" " + (index + 1) + ". " + step + "\n"}
@@ -59,6 +66,12 @@ export class SingleRecipeDisplay extends React.Component {
               <SingleRecipeInstructionText>
                 {instructions}
               </SingleRecipeInstructionText>
+              {/** CREATE STYLED COMPONENT FOR RECIPE LINK*/}
+              <RecipeLinkButton>
+                <a href={sourceUrl} target="blank" className="recipeLink">
+                  Full Recipe
+                </a>
+              </RecipeLinkButton>
               {!this.props.me ? null : (
                 <UserSavedRecipes>
                   {({ data, loading, error, refetch }) => {

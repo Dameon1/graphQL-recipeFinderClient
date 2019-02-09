@@ -6,6 +6,7 @@ export default gql`
       image
       title
       id
+      sourceUrl
       analyzedInstructions {
         steps {
           step
