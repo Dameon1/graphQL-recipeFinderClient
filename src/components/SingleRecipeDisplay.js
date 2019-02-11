@@ -1,7 +1,5 @@
 /* 
-TODO: ****MAKE LINK TO FULL RECIPE******
-      ****SEPERATE "DELETE AND SAVE" user recipes******** 
-      ****Better Display using styled components **********
+TODO: ****SEPERATE "DELETE AND SAVE" user recipes******** 
 */
 
 import React from "react";

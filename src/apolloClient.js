@@ -7,15 +7,13 @@ const cache = new InMemoryCache();
 const defaultState = {
   currentState: {
     __typename: "currentState",
-    //currentSearchTerm: "",
   },
   
 };
 
 export const client = new ApolloClient({
   clientState: {
-    defaults: defaultState,
-    
+    defaults: defaultState,    
     //RESOLVERS IF NEEDED GO IN CLIENT STATE
     resolvers
   },

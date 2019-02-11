@@ -1,6 +1,6 @@
 import React from "react";
-import { ErrorStyles } from "./styles";
 import PropTypes from "prop-types";
+import { ErrorStyles } from "./styles";
 
 const ErrorMessage = ({ error }) => {
   if (!error || !error.message) return null;

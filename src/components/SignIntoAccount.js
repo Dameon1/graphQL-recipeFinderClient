@@ -4,10 +4,6 @@ import { navigate } from "@reach/router";
 
 import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 import Error from "./ErrorMessage";
-
-//TODO************ CREATE INDEX FOR ALL QUERY?MUTATIONS *********
-// import CURRENT_USER from "../actions/currentUserQuery";
-// import SIGNIN_MUTATION from "../actions/signInMutation";
 import {CURRENT_USER_QUERY,SIGNIN_MUTATION} from '../actions';
 
 function routeToHome() {

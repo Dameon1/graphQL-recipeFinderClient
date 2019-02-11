@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "@reach/router";
-
 import {
   Landing,
   LandingHeader,
@@ -15,7 +14,8 @@ export function LandingPage() {
       <LandingHeader>You Have Ingredients?</LandingHeader>
 
       <LandingSmallPrint>
-        {" "}(Find recipes for those ingredients!){" "}
+        {" "}
+        (Find recipes for those ingredients!){" "}
       </LandingSmallPrint>
 
       <LandingText>Sign up today to enjoy full features</LandingText>

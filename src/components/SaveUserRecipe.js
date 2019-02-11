@@ -1,7 +1,7 @@
 import React from "react";
 import { Mutation } from "react-apollo";
-import {SAVE_USER_RECIPE_MUTATION} from "../actions";
 import PropTypes from "prop-types";
+import {SAVE_USER_RECIPE_MUTATION} from "../actions";
 
 
 

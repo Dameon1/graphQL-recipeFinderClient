@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
 import UserDisplayedRecipes from "./UserDisplayedRecipes";
-//import Error from '../components/ErrorMessage';
 import {
   RecipeDisplayContainer,
   UserNoSavedRecipes,
