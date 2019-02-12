@@ -14,9 +14,9 @@ exports[`<Checkbox /> matches the snapshot 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-dnqmqq",
+            "componentId": "sc-kgoBCf",
             "isStatic": true,
-            "lastClassName": "dvlEJL",
+            "lastClassName": "fDUXOo",
             "rules": Array [
               "
           display: inline-block;
@@ -33,7 +33,7 @@ exports[`<Checkbox /> matches the snapshot 1`] = `
           "displayName": "styled.label",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-dnqmqq",
+          "styledComponentId": "sc-kgoBCf",
           "target": "label",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -44,7 +44,7 @@ exports[`<Checkbox /> matches the snapshot 1`] = `
       onClick={[Function]}
     >
       <label
-        className="sc-dnqmqq dvlEJL"
+        className="sc-kgoBCf fDUXOo"
         onClick={[Function]}
       >
         <label>

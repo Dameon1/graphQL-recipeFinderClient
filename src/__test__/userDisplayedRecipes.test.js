@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { UserDisplayedRecipes } from "../components/userDisplayedRecipes";
+import {UserDisplayedRecipes} from "../components/UserDisplayedRecipes";
 
 //TODO: COULD ADD A FEW MORE SMOKE TESTS
 
