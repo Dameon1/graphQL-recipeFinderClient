@@ -1,5 +1,5 @@
 # what2eat
-[![CircleCI](https://circleci.com/gh/Dameon1/what2eat-client.svg?style=svg)](https://circleci.com/gh/Dameon1/what2eat-client)
+[![CircleCI](https://circleci.com/gh/Dameon1/graphQL-recipeFinderClient.svg?style=svg)](https://circleci.com/gh/Dameon1/graphQL-recipeFinderClient)
 
 ## Application details
 
@@ -54,7 +54,7 @@ change and make a pull request. I styled this app with the simplest of styles.
 ## Built With
 
 - [React](https://github.com/gitname/react-gh-pages) - The web framework used
-- [Apollo]
+- [Apollo](https://www.apollographql.com/) - State Management
 
 ## Authors
 
