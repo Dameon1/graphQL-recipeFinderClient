@@ -7,6 +7,7 @@ const cache = new InMemoryCache();
 const defaultState = {
   currentState: {
     __typename: "currentState",
+    
   },
   
 };
