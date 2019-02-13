@@ -1,7 +1,4 @@
-/* 
-TODO: ****SEPERATE "DELETE AND SAVE" user recipes******** 
-*/
-
+////********TODO MODULARIZE THIS COMPONENT */
 import React from "react";
 import { Query, graphql, compose } from "react-apollo";
 import Spinner from "react-spinkit";
@@ -20,7 +17,6 @@ import SaveUserRecipe from "./SaveUserRecipe";
 import DeleteUserRecipe from "./DeleteUserRecipe";
 import { GET_RECIPE_BY_ID_QUERY } from "../actions";
 
-//********TODO MODULARIZE THIS COMPONENT */
 export class SingleRecipeDisplay extends React.Component {
   render() {
     let location = window.location.pathname.split("/");

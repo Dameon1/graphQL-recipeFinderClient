@@ -1,20 +1,18 @@
 //TODO **DETERMINE WHAT OF THE DEFAULT STATE IS USED AND CLEAN UP**
-import resolvers from './resolvers';
+import resolvers from "./resolvers";
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import API_BASE_URL from "./config";
 const cache = new InMemoryCache();
 
 const defaultState = {
   currentState: {
-    __typename: "currentState",
-    
-  },
-  
+    __typename: "currentState"
+  }
 };
 
 export const client = new ApolloClient({
   clientState: {
-    defaults: defaultState,    
+    defaults: defaultState,
     //RESOLVERS IF NEEDED GO IN CLIENT STATE
     resolvers
   },

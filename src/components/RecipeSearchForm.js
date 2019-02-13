@@ -101,9 +101,7 @@ export class RecipeSearchForm extends React.Component {
   render() {
     return (
       <div>
-        <DashboardHeading>
-          Welcome to what2eat
-        </DashboardHeading>
+        <DashboardHeading>Welcome to what2eat</DashboardHeading>
 
         <AddIngredientForm onSubmit={e => this.addIngredents(e)}>
           <AddIngredientLabel

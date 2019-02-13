@@ -3,7 +3,7 @@ import { Query } from "react-apollo";
 import Spinner from "react-spinkit";
 
 import SmallRecipeDisplay from "../components/SmallRecipeDisplay";
-import {GET_MULTIPLE_API_RECIPES_QUERY} from "../actions";
+import { GET_MULTIPLE_API_RECIPES_QUERY } from "../actions";
 import { RecipeDisplayContainer } from "./styles";
 
 export class SearchResults extends React.Component {

@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 
 import { Form, UserSignIn, SignInButton, SignInInput, Label } from "./styles";
 import Error from "./ErrorMessage";
-import {CURRENT_USER_QUERY,SIGNIN_MUTATION} from '../actions';
+import { CURRENT_USER_QUERY, SIGNIN_MUTATION } from "../actions";
 
 function routeToHome() {
   navigate("/dashboard");

@@ -14,7 +14,6 @@ export class UserDisplayedRecipes extends Component {
       <SmallRecipeContainer key={id} value={id}>
         <SmallRecipeTitleText>{title}</SmallRecipeTitleText>
         <MultiRecipeImage src={image} alt={`Of ${title}`} />
-
         <Link to={`/singleRecipe/${id}`}>
           <MultiRecipeButton>Get Recipe</MultiRecipeButton>
         </Link>
