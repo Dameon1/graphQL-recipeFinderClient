@@ -3,7 +3,7 @@
 exports[`<Header /> Renders without crashing 1`] = `
 <styled.div>
   <styled.h1>
-    what2eat
+    What2Eat2
   </styled.h1>
   <User>
     <Component />

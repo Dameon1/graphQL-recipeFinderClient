@@ -6,9 +6,7 @@ exports[`<LandingPage> renders without crashing 1`] = `
     You Have Ingredients?
   </styled.h2>
   <styled.h2>
-     
     (Find recipes for those ingredients!)
-     
   </styled.h2>
   <styled.p>
     Sign up today to enjoy full features
