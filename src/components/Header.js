@@ -8,7 +8,7 @@ export class Header extends React.Component {
   render() {
     return (
       <Headline>
-        <HeadlineText>What2Eat</HeadlineText>
+        <HeadlineText>What2Eat2</HeadlineText>
         <User>
           {data => {
             if (!data.data.me) {
